@@ -1,0 +1,25 @@
+/*
+	ï«éÜ
+*/
+
+/@(ASTR)
+
+/// Wall_t
+{
+	// ï«éÜÇï`âÊÇ∑ÇÈÅB
+	//
+	<generatorForTask> Draw
+}
+
+@(ASTR)/
+
+/*
+	ï`âÊ
+*/
+function <void> DrawWall(<Wall_t> wall)
+{
+	if (!NextVal(wall.Draw))
+	{
+		error();
+	}
+}
