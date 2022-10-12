@@ -29,7 +29,7 @@ namespace Charlotte
 			{
 				Main4(ar);
 			}
-			Common.OpenOutputDirIfCreated();
+			SCommon.OpenOutputDirIfCreated();
 		}
 
 		private void Main3()
@@ -43,7 +43,7 @@ namespace Charlotte
 
 			// --
 
-			Common.Pause();
+			SCommon.Pause();
 		}
 
 		private void Main4(ArgsReader ar)
@@ -56,26 +56,31 @@ namespace Charlotte
 			{
 				ProcMain.WriteLog(ex);
 
-				//MessageBox.Show("" + ex, ProcMain.APP_TITLE + " / エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("" + ex, Path.GetFileNameWithoutExtension(ProcMain.SelfFile) + " / エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-				Console.WriteLine("Press ENTER key. (エラーによりプログラムを終了します)");
-				Console.ReadLine();
+				//Console.WriteLine("Press ENTER key. (エラーによりプログラムを終了します)");
+				//Console.ReadLine();
 			}
 		}
+
+		private string WRootDir;
 
 		private void Main5(ArgsReader ar)
 		{
 			if (!Directory.Exists(Consts.R_ROOT_DIR))
 				throw new Exception("no R_ROOT_DIR");
 
-			if (!Directory.Exists(Consts.W_ROOT_DIR))
-				throw new Exception("no W_ROOT_DIR");
+			WRootDir = GetWRootDir();
 
-			Console.WriteLine("start...");
+			if (!Directory.Exists(WRootDir))
+				throw new Exception("no WRootDir");
+
+			Console.WriteLine("< " + Consts.R_ROOT_DIR);
+			Console.WriteLine("> " + WRootDir);
 
 			// 出力先クリア
-			SCommon.DeletePath(Consts.W_ROOT_DIR);
-			SCommon.CreateDir(Consts.W_ROOT_DIR);
+			SCommon.DeletePath(WRootDir);
+			SCommon.CreateDir(WRootDir);
 
 			Queue<string[]> q = new Queue<string[]>();
 
@@ -98,6 +103,20 @@ namespace Charlotte
 			Console.WriteLine("done!");
 		}
 
+		private static string GetWRootDir()
+		{
+			foreach (char alpha in SCommon.ALPHA)
+			{
+				string dir = Consts.W_ROOT_DIR_BASE;
+
+				dir = dir.Replace('?', alpha);
+
+				if (Directory.Exists(dir))
+					return dir;
+			}
+			throw new Exception("no W_ROOT_DIR");
+		}
+
 		private bool IsProjectDir(string dir)
 		{
 			return Consts.SRC_LOCAL_DIRS.Any(v => Directory.Exists(Path.Combine(dir, v)));
@@ -111,7 +130,7 @@ namespace Charlotte
 
 				if (Directory.Exists(rDir))
 				{
-					string wDir = SCommon.ChangeRoot(rDir, Consts.R_ROOT_DIR, Consts.W_ROOT_DIR);
+					string wDir = SCommon.ChangeRoot(rDir, Consts.R_ROOT_DIR, WRootDir);
 
 					ProcMain.WriteLog("< " + rDir);
 					ProcMain.WriteLog("> " + wDir);

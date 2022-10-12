@@ -13,12 +13,12 @@ namespace Charlotte
 		public const string R_ROOT_DIR = @"C:\Dev";
 
 		/// <summary>
-		/// 出力ルートDIR
+		/// 出力ルートDIR の ベース名
 		/// </summary>
-		public const string W_ROOT_DIR = @"C:\home\GitHub\StoreP\Dev";
+		public const string W_ROOT_DIR_BASE = @"C:\home\GitHub\Store?\Dev";
 
 		/// <summary>
-		/// ソースDIRのローカル名
+		/// ソースDIR の ローカル名
 		/// </summary>
 		public static readonly string[] SRC_LOCAL_DIRS = new string[]
 		{
