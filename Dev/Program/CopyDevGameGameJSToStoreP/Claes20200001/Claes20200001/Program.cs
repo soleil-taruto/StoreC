@@ -36,7 +36,7 @@ namespace Charlotte
 		{
 			// -- choose one --
 
-			Main4(new ArgsReader(new string[] { }));
+			Main4(new ArgsReader(new string[] { "C" }));
 			//new Test0001().Test01();
 			//new Test0002().Test01();
 			//new Test0003().Test01();
@@ -67,16 +67,27 @@ namespace Charlotte
 
 		private void Main5(ArgsReader ar)
 		{
+			string alpha = ar.NextArg();
+
+			ar.End();
+
+			if (!Regex.IsMatch(alpha, "^[A-Za-z]$"))
+				throw new Exception("Bad alpha");
+
+			WRootDir = string.Format(Consts.W_ROOT_DIR_FORMAT, alpha);
+
+			Console.WriteLine("< " + Consts.R_ROOT_DIR);
+			Console.WriteLine("> " + WRootDir);
+
 			if (!Directory.Exists(Consts.R_ROOT_DIR))
 				throw new Exception("no R_ROOT_DIR");
-
-			WRootDir = GetWRootDir();
 
 			if (!Directory.Exists(WRootDir))
 				throw new Exception("no WRootDir");
 
-			Console.WriteLine("< " + Consts.R_ROOT_DIR);
-			Console.WriteLine("> " + WRootDir);
+			Console.WriteLine(Directory.GetCurrentDirectory());
+
+			Console.WriteLine("");
 
 			// 出力先クリア
 			SCommon.DeletePath(WRootDir);
@@ -101,20 +112,6 @@ namespace Charlotte
 				}
 			}
 			Console.WriteLine("done!");
-		}
-
-		private static string GetWRootDir()
-		{
-			foreach (char alpha in SCommon.ALPHA)
-			{
-				string dir = Consts.W_ROOT_DIR_BASE;
-
-				dir = dir.Replace('?', alpha);
-
-				if (Directory.Exists(dir))
-					return dir;
-			}
-			throw new Exception("no W_ROOT_DIR");
 		}
 
 		private bool IsProjectDir(string dir)
