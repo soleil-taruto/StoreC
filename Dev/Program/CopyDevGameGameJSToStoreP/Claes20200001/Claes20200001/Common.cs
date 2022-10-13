@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Charlotte.Tests
+namespace Charlotte
 {
-	public class Test0002
+	public static class Common
 	{
-		public void Test01()
-		{
-			// none
-		}
+		// none
 	}
 }
