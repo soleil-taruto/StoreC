@@ -58,5 +58,34 @@ namespace Charlotte.Tests
 			}
 			return !seats[99];
 		}
+
+		public void Test02()
+		{
+			double l = 1.0;
+			double r = 2.0;
+
+			//while (SCommon.MICRO < (r - l))
+			//for (int c = 0; c < 30; c++)
+			//for (int c = 0; c < 100; c++)
+			for (int c = 0; c < 300; c++)
+			{
+				double m = (l + r) / 2;
+
+				if (m * m < 2.0)
+				{
+					l = m;
+				}
+				else
+				{
+					r = m;
+				}
+			}
+
+			{
+				double m = (l + r) / 2;
+
+				Console.WriteLine(m.ToString("F20"));
+			}
+		}
 	}
 }
