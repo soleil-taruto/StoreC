@@ -38,7 +38,12 @@ namespace Charlotte.Games.Surfaces
 						int dispSubtitleLength = Math.Min(Game.I.DispSubtitleCharCount, Game.I.CurrPage.Subtitle.Length);
 						string dispSubtitle = Game.I.CurrPage.Subtitle.Substring(0, dispSubtitleLength);
 
-						DDFontUtils.DrawString(20, 826, dispSubtitle, DDFontUtils.GetFont("Kゴシック", 32));
+						DDFontUtils.DrawString(
+							20,
+							826,
+							dispSubtitle,
+							DDFontUtils.GetFont("Kゴシック", 32)
+							);
 					}
 
 					// シナリオのテキスト文字列
@@ -49,7 +54,12 @@ namespace Charlotte.Games.Surfaces
 
 						for (int index = 0; index < dispLines.Length; index++)
 						{
-							DDFontUtils.DrawString(20, 900 + index * 60, dispLines[index], DDFontUtils.GetFont("Kゴシック", 32), false, new I3Color(110, 100, 90));
+							DDFontUtils.DrawString(
+								20,
+								900 + index * 60,
+								dispLines[index],
+								DDFontUtils.GetFont("Kゴシック", 32), false, new I3Color(110, 100, 90)
+								);
 						}
 					}
 				}
