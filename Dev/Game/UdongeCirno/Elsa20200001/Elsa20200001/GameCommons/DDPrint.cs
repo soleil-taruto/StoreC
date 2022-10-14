@@ -15,7 +15,7 @@ namespace Charlotte.GameCommons
 		{
 			public DDTaskList TL = null;
 			public I3Color Color = new I3Color(255, 255, 255);
-			public I3Color BorderColor = new I3Color(-1, 0, 0);
+			public I3Color BorderColor = new I3Color(0, 0, 0); // BorderWidth == 0 のときは使用しない。
 			public int BorderWidth = 0;
 		}
 
