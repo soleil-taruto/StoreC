@@ -24,8 +24,6 @@ namespace Charlotte.Novels.Surfaces
 		/// <summary>
 		/// アクションのリスト
 		/// Act.Draw が false を返したとき this.Draw を実行しなければならない。
-		/// セーブ・ロード時にこのフィールドは保存・再現されない。
-		/// -- セーブ前に Flush しなければならない。
 		/// </summary>
 		public NovelAct Act = new NovelAct();
 
@@ -156,7 +154,8 @@ namespace Charlotte.Novels.Surfaces
 		/// <param name="arguments">コマンド引数列</param>
 		protected virtual void Invoke_02(string command, params string[] arguments)
 		{
-			throw new DDError();
+			ProcMain.WriteLog(command);
+			throw new DDError(); // Bad command
 		}
 	}
 }

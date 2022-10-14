@@ -196,7 +196,8 @@ namespace Charlotte.Games.Surfaces
 		/// <param name="arguments">コマンド引数列</param>
 		protected virtual void Invoke_02(string command, params string[] arguments)
 		{
-			throw new DDError();
+			ProcMain.WriteLog(command);
+			throw new DDError(); // Bad command
 		}
 
 		private static readonly string[] SERIALIZED_DUMMY = new string[] { "SERIALIZED_DUMMY" };
