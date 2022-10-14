@@ -87,5 +87,25 @@ namespace Charlotte.Tests
 				Console.WriteLine(m.ToString("F20"));
 			}
 		}
+
+		public void Test03()
+		{
+			double SPEED = 0.0001;
+
+			for (double rate = -0.9; rate < 0.9; rate += 0.01)
+			{
+				Test03_a(SPEED, SPEED * rate);
+			}
+		}
+
+		private void Test03_a(double speed, double wind)
+		{
+			double t = 0.0;
+
+			t += 1.0 / (speed + wind);
+			t += 1.0 / (speed - wind);
+
+			Console.WriteLine(speed.ToString("F6") + " + " + wind.ToString("F6") + " ==> " + t.ToString("F9"));
+		}
 	}
 }
