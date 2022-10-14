@@ -43,13 +43,13 @@ function <double> GetAngle(<double> x, <double> y)
 	{
 		return Math.PI - GetAngle(-x, y);
 	}
-	if (x <= 0.0)
+	if (x < y)
 	{
-		return Math.PI / 2.0;
+		return Math.PI / 2.0 - GetAngle(y, x);
 	}
-	if (y <= 0.0)
+	if (x < MICRO)
 	{
-		return 0.0;
+		return 0.0; // 極端に原点に近い座標の場合、常に右真横を返す。
 	}
 
 	var<double> r1 = 0.0;
