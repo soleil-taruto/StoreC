@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Charlotte.Commons;
 using Charlotte.GameCommons;
 
 namespace Charlotte.Games.Surfaces
@@ -29,11 +30,10 @@ namespace Charlotte.Games.Surfaces
 			if (command == "再生")
 			{
 				this.Act.AddOnce(() => DDCCResource.GetSE(arguments[c++]).Play());
+				return;
 			}
-			else
-			{
-				throw new DDError();
-			}
+			ProcMain.WriteLog(command);
+			throw new DDError(); // Bad command
 		}
 	}
 }

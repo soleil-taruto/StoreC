@@ -13,12 +13,6 @@ namespace Charlotte.Games.Surfaces
 	/// </summary>
 	public abstract class Surface
 	{
-		// memo:
-		// 抽象クラス(abstract クラス)とそれを継承したクラスもコンストラクタ以外の初期化の方法を持つべきではない。
-		// -- prm にするとフィールド初期化し忘れる。ややこしくなる。初期化方法は明瞭であるべき。
-		// インスタンス開放時に特定の手順を持つべきではない。
-		// -- 廃止した GameStatus.RemoveSurface() -- そうしなくても良いように設計するべき。
-
 		public string TypeName; // ロード時に必要
 		public string InstanceName;
 
@@ -63,41 +57,47 @@ namespace Charlotte.Games.Surfaces
 						this.Y = int.Parse(arguments[c++]);
 						this.Z = int.Parse(arguments[c++]);
 					});
+
+					return;
 				}
-				else if (arguments.Length == 2)
+				if (arguments.Length == 2)
 				{
 					this.Act.AddOnce(() =>
 					{
 						this.X = int.Parse(arguments[c++]);
 						this.Y = int.Parse(arguments[c++]);
 					});
+
+					return;
 				}
-				else
-				{
-					throw new DDError();
-				}
+				throw new DDError(); // Bad arguments
 			}
-			else if (command == "X")
+			if (command == "X")
 			{
 				this.Act.AddOnce(() => this.X = int.Parse(arguments[c++]));
+				return;
 			}
-			else if (command == "Y")
+			if (command == "Y")
 			{
 				this.Act.AddOnce(() => this.Y = int.Parse(arguments[c++]));
+				return;
 			}
-			else if (command == "Z")
+			if (command == "Z")
 			{
 				this.Act.AddOnce(() => this.Z = int.Parse(arguments[c++]));
+				return;
 			}
-			else if (command == "End")
+			if (command == "End")
 			{
 				this.Act.AddOnce(() => this.DeadFlag = true);
+				return;
 			}
-			else if (command == "Flush") // 即時
+			if (command == "Flush") // 即時
 			{
 				this.Act.Flush();
+				return;
 			}
-			else if (command == "Sleep") // 描画せずに待つ
+			if (command == "Sleep") // 描画せずに待つ
 			{
 				int frame = int.Parse(arguments[c++]);
 
@@ -107,8 +107,9 @@ namespace Charlotte.Games.Surfaces
 				int endFrame = DDEngine.ProcFrame + frame;
 
 				this.Act.Add(() => DDEngine.ProcFrame < endFrame && !Act.IsFlush);
+				return;
 			}
-			else if (command == "Keep") // 描画しながら待つ
+			if (command == "Keep") // 描画しながら待つ
 			{
 				int frame = int.Parse(arguments[c++]);
 
@@ -122,11 +123,10 @@ namespace Charlotte.Games.Surfaces
 					this.Draw();
 					return DDEngine.ProcFrame < endFrame && !Act.IsFlush;
 				});
+
+				return;
 			}
-			else
-			{
-				this.Invoke_02(command, arguments);
-			}
+			this.Invoke_02(command, arguments);
 		}
 
 		/// <summary>
