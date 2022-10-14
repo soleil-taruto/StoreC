@@ -107,5 +107,21 @@ namespace Charlotte.Tests
 
 			Console.WriteLine(speed.ToString("F6") + " + " + wind.ToString("F6") + " ==> " + t.ToString("F9"));
 		}
+
+		public void Test04()
+		{
+			Console.WriteLine(1.0 / SCommon.MICRO);
+			Console.WriteLine(1.0 / 1E-200);
+			Console.WriteLine(1E+200 / 1E-200);
+
+			double inf = 1E+200 / 1E-200;
+
+			Console.WriteLine(inf < 0.0); // False
+			Console.WriteLine(inf > 0.0); // True
+			Console.WriteLine(inf < SCommon.IMAX); // False
+			Console.WriteLine(inf > SCommon.IMAX); // True
+			Console.WriteLine(inf < 1E+200); // False
+			Console.WriteLine(inf > 1E+200); // True
+		}
 	}
 }

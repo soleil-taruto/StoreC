@@ -185,8 +185,8 @@ namespace Charlotte.GameCommons
 			if (y < 0.0) return Math.PI * 2.0 - GetAngle(x, -y);
 			if (x < 0.0) return Math.PI - GetAngle(-x, y);
 
-			if (x <= 0.0) return Math.PI / 2.0;
-			if (y <= 0.0) return 0.0;
+			if (x < y) return Math.PI / 2.0 - GetAngle(y, x);
+			if (x < SCommon.MICRO) return 0.0; // 極端に原点に近い座標の場合、常に右真横を返す。
 
 			double r1 = 0.0;
 			double r2 = Math.PI / 2.0;
