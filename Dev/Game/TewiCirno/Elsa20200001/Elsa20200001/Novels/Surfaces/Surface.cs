@@ -56,41 +56,47 @@ namespace Charlotte.Novels.Surfaces
 						this.Y = double.Parse(arguments[c++]);
 						this.Z = int.Parse(arguments[c++]);
 					});
+
+					return;
 				}
-				else if (arguments.Length == 2)
+				if (arguments.Length == 2)
 				{
 					this.Act.AddOnce(() =>
 					{
 						this.X = double.Parse(arguments[c++]);
 						this.Y = double.Parse(arguments[c++]);
 					});
+
+					return;
 				}
-				else
-				{
-					throw new DDError();
-				}
+				throw new DDError(); // Bad arguments
 			}
-			else if (command == "X")
+			if (command == "X")
 			{
 				this.Act.AddOnce(() => this.X = double.Parse(arguments[c++]));
+				return;
 			}
-			else if (command == "Y")
+			if (command == "Y")
 			{
 				this.Act.AddOnce(() => this.Y = double.Parse(arguments[c++]));
+				return;
 			}
-			else if (command == "Z")
+			if (command == "Z")
 			{
 				this.Act.AddOnce(() => this.Z = int.Parse(arguments[c++]));
+				return;
 			}
-			else if (command == "End")
+			if (command == "End")
 			{
 				this.Act.AddOnce(() => this.DeadFlag = true);
+				return;
 			}
-			else if (command == "Flush") // 即時
+			if (command == "Flush") // 即時
 			{
 				this.Act.Flush();
+				return;
 			}
-			else if (command == "Sleep") // 描画せずに待つ
+			if (command == "Sleep") // 描画せずに待つ
 			{
 				int frame = int.Parse(arguments[c++]);
 
@@ -100,8 +106,9 @@ namespace Charlotte.Novels.Surfaces
 				int endFrame = DDEngine.ProcFrame + frame;
 
 				this.Act.Add(() => DDEngine.ProcFrame < endFrame && !NovelAct.IsFlush);
+				return;
 			}
-			else if (command == "Keep") // 描画しながら待つ
+			if (command == "Keep") // 描画しながら待つ
 			{
 				int frame = int.Parse(arguments[c++]);
 
@@ -115,11 +122,10 @@ namespace Charlotte.Novels.Surfaces
 					this.Draw();
 					return DDEngine.ProcFrame < endFrame && !NovelAct.IsFlush;
 				});
+
+				return;
 			}
-			else
-			{
-				this.Invoke_02(command, arguments);
-			}
+			this.Invoke_02(command, arguments);
 		}
 
 		private Func<bool> _draw = null;
