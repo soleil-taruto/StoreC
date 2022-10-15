@@ -47,8 +47,11 @@ namespace Charlotte.Tests
 			if (x < y) return Math.PI / 2.0 - GetAngle(y, x);
 			if (x < SCommon.MICRO) return 0.0; // 極端に原点に近い座標の場合、常に右真横を返す。
 
+			if (y <= 0.0) return 0.0;
+			if (y == x) return Math.PI / 4.0;
+
 			double r1 = 0.0;
-			double r2 = Math.PI / 2.0;
+			double r2 = Math.PI / 4.0;
 			double t = y / x;
 			double rm;
 
@@ -56,9 +59,8 @@ namespace Charlotte.Tests
 			{
 				rm = (r1 + r2) / 2.0;
 
-				//if (10 <= c)
-				//if (31 <= c) // <-- ギリギリ -- MICRO が 1E-9 なので多分そのせい。
-				if (50 <= c)
+				//if (10 <= c) // for Game
+				if (50 < c)
 					break;
 
 				double rmt = Math.Tan(rm);
