@@ -51,9 +51,17 @@ function <double> GetAngle(<double> x, <double> y)
 	{
 		return 0.0; // 極端に原点に近い座標の場合、常に右真横を返す。
 	}
+	if (y <= 1.0)
+	{
+		return 0.0;
+	}
+	if (y == x)
+	{
+		return Math.PI / 4.0;
+	}
 
 	var<double> r1 = 0.0;
-	var<double> r2 = Math.PI / 2.0;
+	var<double> r2 = Math.PI / 4.0;
 	var<double> t = y / x;
 	var<double> rm;
 	var<double> rmt;
