@@ -75,7 +75,7 @@ namespace Charlotte.Tests
 			if (x < y) return Math.PI / 2.0 - GetAngle(y, x);
 			if (x < SCommon.MICRO) return 0.0; // 極端に原点に近い座標の場合、常に右真横を返す。
 
-			if (y <= 0.0) return 0.0;
+			if (y == 0.0) return 0.0;
 			if (y == x) return Math.PI / 4.0;
 
 			double r1 = 0.0;
