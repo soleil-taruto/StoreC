@@ -30,6 +30,34 @@ namespace Charlotte.Tests
 			Console.WriteLine("OK!");
 		}
 
+		public void Test02()
+		{
+			const double distance = 100.0;
+
+			for (int a = 1; a < 8; a++)
+			{
+				for (int b = 0; b < 10000; b++)
+				{
+					for (int bSgn = -1; bSgn <= 1; bSgn += 2)
+					{
+						double angle = (Math.PI / 4.0) * a + b * 0.00000001 * bSgn;
+
+						double x = Math.Cos(angle) * distance;
+						double y = Math.Sin(angle) * distance;
+
+						double ret = GetAngle(x, y);
+						double diff = ret - angle;
+
+						Console.WriteLine(distance.ToString("F9") + ", " + angle.ToString("F9") + " ==> " + diff.ToString("F9"));
+
+						if (Math.Abs(diff) > SCommon.MICRO)
+							throw null; // BUG !!!
+					}
+				}
+			}
+			Console.WriteLine("OK!");
+		}
+
 		/// <summary>
 		/// 原点から指定座標への角度を返す。
 		/// ラジアン角 (0.0 ～ Math.PI * 2.0)
