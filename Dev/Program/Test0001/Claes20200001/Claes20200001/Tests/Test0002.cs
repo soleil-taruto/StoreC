@@ -122,6 +122,8 @@ namespace Charlotte.Tests
 			Console.WriteLine(inf > SCommon.IMAX); // True
 			Console.WriteLine(inf < 1E+200); // False
 			Console.WriteLine(inf > 1E+200); // True
+			Console.WriteLine(0.0 < 1E+200); // True
+			Console.WriteLine(0.0 > 1E+200); // False
 		}
 	}
 }
