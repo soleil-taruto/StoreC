@@ -91,13 +91,13 @@ namespace Charlotte.Tests
 			return new int[] { l, r };
 		}
 
-		private int GetBorder<T>(T[] arr, Predicate<T> match, int l, int r)
+		private int GetBorder<T>(T[] arr, Predicate<T> matchForLeft, int l, int r)
 		{
 			while (l + 1 < r)
 			{
 				int m = (l + r) / 2;
 
-				if (match(arr[m]))
+				if (matchForLeft(arr[m]))
 				{
 					l = m;
 				}
