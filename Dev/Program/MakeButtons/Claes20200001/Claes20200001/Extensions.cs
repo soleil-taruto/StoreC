@@ -10,9 +10,10 @@ namespace Charlotte
 		public static IEnumerable<T> ForEach<T>(this IEnumerable<T> src, Action<T> action)
 		{
 			foreach (T element in src)
+			{
 				action(element);
-
-			return src;
+				yield return element;
+			}
 		}
 
 		public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> src, Comparison<T> comp)
