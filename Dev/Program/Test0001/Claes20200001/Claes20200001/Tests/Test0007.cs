@@ -14,6 +14,11 @@ namespace Charlotte.Tests
 				Console.WriteLine(string.Join(", ", indexes));
 
 			Console.WriteLine(Combination(10, 4).Count());
+
+			// ----
+
+			foreach (int[] indexes in Combination(5, 3))
+				Console.WriteLine(string.Join(", ", indexes));
 		}
 
 		public static IEnumerable<int[]> Combination(int n, int r)
@@ -43,7 +48,11 @@ namespace Charlotte.Tests
 
 						yield break;
 					}
-					indexes[d] = 1 <= d ? indexes[d - 1] + 1 : 0;
+
+					if (1 <= d)
+						indexes[d] = indexes[d - 1] + 1;
+					else
+						indexes[d] = 0;
 				}
 			}
 		}
