@@ -12,29 +12,31 @@ namespace Charlotte.Tests
 	{
 		public void Test01()
 		{
-			Test01_a(0x7);
-			Test01_a(0xf);
-			Test01_a(0xff);
-			Test01_a(0xffff);
-			Test01_a(0xffffffff);
-			Test01_a(ulong.MaxValue);
-		}
+			ulong[] MASKS = new ulong[] { 0xf, 0xff, 0xffff, 0xffffffff, ulong.MaxValue };
 
-		private void Test01_a(ulong mask)
-		{
-			for (int testcnt = 0; testcnt < 1000; testcnt++)
+			foreach (ulong m1 in MASKS)
 			{
-				Test01_a2(mask);
+				foreach (ulong m2 in MASKS)
+				{
+					foreach (ulong m3 in MASKS)
+					{
+						for (int testcnt = 0; testcnt < 1000; testcnt++)
+						{
+							Test01_a(m1, m2, m3);
+						}
+					}
+				}
 			}
+			Console.WriteLine("OK!");
 		}
 
-		private void Test01_a2(ulong mask)
+		private void Test01_a(ulong m1, ulong m2, ulong m3)
 		{
-			ulong a = GetULongRand() & mask;
-			ulong b = GetULongRand() & mask;
-			ulong m = GetULongRand() & mask;
+			ulong a = GetULongRand() & m1;
+			ulong b = GetULongRand() & m2;
+			ulong m = GetULongRand() & m3;
 
-			if (m == 0)
+			if (m == 0) // テスト不可 -> スキップ
 				return;
 
 			ulong c = ModPow64(a, b, m);
