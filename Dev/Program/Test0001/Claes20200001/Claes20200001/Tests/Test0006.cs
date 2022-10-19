@@ -58,7 +58,7 @@ namespace Charlotte.Tests
 
 				b = ModMul64(b, b, m);
 			}
-			return a;
+			return a % m;
 		}
 
 		private static ulong ModMul64(ulong b, ulong e, ulong m)
