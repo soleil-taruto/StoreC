@@ -114,28 +114,32 @@ namespace Charlotte.Tests
 
 		private ulong Test01_b(ulong a, ulong b, ulong m)
 		{
-			BigInteger aa = new BigInteger(a);
-			BigInteger bb = new BigInteger(b);
-			BigInteger mm = new BigInteger(m);
+			//BigInteger aa = new BigInteger(a);
+			//BigInteger bb = new BigInteger(b);
+			//BigInteger mm = new BigInteger(m);
 
-			return (ulong)Test01_ModPow(aa, bb, mm);
+			//return (ulong)Test01_ModPow(aa, bb, mm);
+
+			// ----
+
+			return (ulong)Test01_ModPow(a, b, m);
 		}
 
-		private BigInteger Test01_ModPow(BigInteger aa, BigInteger bb, BigInteger mm)
+		private BigInteger Test01_ModPow(BigInteger a, BigInteger b, BigInteger m)
 		{
-			if (bb == 0)
+			if (b == 0)
 			{
-				return 1 % mm;
+				return 1 % m;
 			}
-			if (bb == 1)
+			if (b == 1)
 			{
-				return aa % mm;
+				return a % m;
 			}
-			if (bb % 2 == 1)
+			if (b % 2 == 1)
 			{
-				return (Test01_ModPow(aa, bb - 1, mm) * aa) % mm;
+				return (Test01_ModPow(a, b - 1, m) * a) % m;
 			}
-			return Test01_ModPow((aa * aa) % mm, bb / 2, mm);
+			return Test01_ModPow((a * a) % m, b / 2, m);
 		}
 	}
 }
