@@ -110,11 +110,11 @@ namespace Charlotte.Tests
 		public void Test02()
 		{
 			Test02_a(2);
+			Test02_a(3);
 			Test02_a(5);
-			Test02_a(10);
-			Test02_a(20);
-			Test02_a(50);
-			Test02_a(100);
+			Test02_a(7);
+			Test02_a(11);
+			Test02_a(13);
 
 			Console.WriteLine("OK!");
 		}
