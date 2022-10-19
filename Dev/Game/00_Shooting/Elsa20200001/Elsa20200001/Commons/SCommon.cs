@@ -415,9 +415,10 @@ namespace Charlotte.Commons
 		public static IEnumerable<T> ForEach<T>(IEnumerable<T> src, Action<T> action)
 		{
 			foreach (T element in src)
+			{
 				action(element);
-
-			return src;
+				yield return element;
+			}
 		}
 
 		public static IEnumerable<T> OrderBy<T>(IEnumerable<T> src, Comparison<T> comp)
