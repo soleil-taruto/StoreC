@@ -48,5 +48,15 @@ namespace Charlotte
 		{
 			return src.OrderBy(comp).OrderedDistinct((a, b) => comp(a, b) == 0);
 		}
+
+		// ====
+
+		public static IEnumerable<T> Test0011_ForEach<T>(this IEnumerable<T> src, Action<T> routine)
+		{
+			foreach (T element in src)
+				routine(element);
+
+			return src;
+		}
 	}
 }
