@@ -72,6 +72,8 @@ namespace Charlotte.Tests
 
 			public int GetHashCode(int[] a)
 			{
+				// HACK: HachCode.Combine にこういう使い方が想定されているのか疑問。
+
 				int digest = 0;
 
 				foreach (int value in a)
@@ -119,12 +121,18 @@ namespace Charlotte.Tests
 
 		// ====
 
-		// ダミー
+		// なんか HashCode 無いっぽいので、ダミーを実装しておく。
+		// .NET Core 2.1 (2018) 以降にはあるっぽい。
 		public static class HashCode
 		{
 			public static int Combine(int a, int b)
 			{
-				return a ^ b; // 適当でよい。
+				ulong x = (ulong)(uint)a;
+				ulong y = (ulong)(uint)b;
+
+				x = ((x << 32) | y) % 4294967291;
+
+				return (int)(uint)x;
 			}
 		}
 	}
