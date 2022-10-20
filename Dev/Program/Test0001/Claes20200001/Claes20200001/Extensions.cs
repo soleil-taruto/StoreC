@@ -51,10 +51,13 @@ namespace Charlotte
 
 		// ====
 
-		public static IEnumerable<T> Test0011_ForEach<T>(this IEnumerable<T> src, Action<T> routine)
+		public static IEnumerable<T> Test0011_ForEach<T>(this IEnumerable<T> src, Action<T> action)
 		{
+			// 複製すると想定どおり動くっぽい。
+			//src = src.ToArray(); // 複製
+
 			foreach (T element in src)
-				routine(element);
+				action(element);
 
 			return src;
 		}
