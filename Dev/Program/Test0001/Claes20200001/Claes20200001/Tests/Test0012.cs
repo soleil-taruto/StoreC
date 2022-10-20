@@ -31,6 +31,9 @@ namespace Charlotte.Tests
 				//Console.WriteLine(degree + " ==> " + (s1 - s2).ToString("F20") + " , " + (c1 - c2).ToString("F20") + " , " + (t1 - t2).ToString("F20"));
 				Console.WriteLine(degree + " ==> " + Math.Abs(s1 - s2).ToString("F20") + " , " + Math.Abs(c1 - c2).ToString("F20") + " , " + Math.Abs(t1 - t2).ToString("F20"));
 			}
+
+			Console.WriteLine(MS_ValMin.ToString("F20"));
+			Console.WriteLine(MS_ValMax.ToString("F20"));
 		}
 
 		private double Tan(double rad)
@@ -70,7 +73,7 @@ namespace Charlotte.Tests
 			for (int c = 0; c < 50; c++)
 			{
 				D2Point mPt = (lPt + rPt) / 2.0;
-				double d = Math.Sqrt(mPt.X * mPt.X + mPt.Y * mPt.Y);
+				double d = M_Sqrt(mPt.X * mPt.X + mPt.Y * mPt.Y);
 				mPt /= d;
 				double mRad = (lRad + rRad) / 2.0;
 
@@ -90,6 +93,40 @@ namespace Charlotte.Tests
 				D2Point mPt = (lPt + rPt) / 2.0;
 
 				return mPt.X;
+			}
+		}
+
+		private double MS_ValMin = double.MaxValue;
+		private double MS_ValMax = double.MinValue;
+
+		private double M_Sqrt(double value)
+		{
+			if (value < 0.0)
+				throw null; // Bad params
+
+			MS_ValMin = Math.Min(MS_ValMin, value);
+			MS_ValMax = Math.Max(MS_ValMax, value);
+
+			bool lessThenOne = value < 1.0;
+
+			double l = lessThenOne ? 0.0 : 1.0;
+			double r = lessThenOne ? 1.0 : value;
+
+			for (int c = 0; c < 50; c++)
+			{
+				double m = (l + r) / 2.0;
+				double mv = m * m;
+
+				if (lessThenOne == mv < value)
+					l = m;
+				else
+					r = m;
+			}
+
+			{
+				double m = (l + r) / 2.0;
+
+				return m;
 			}
 		}
 	}
