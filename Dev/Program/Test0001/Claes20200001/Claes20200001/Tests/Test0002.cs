@@ -125,5 +125,14 @@ namespace Charlotte.Tests
 			Console.WriteLine(0.0 < 1E+200); // True
 			Console.WriteLine(0.0 > 1E+200); // False
 		}
+
+		public void Test05()
+		{
+			string version = typeof(System.String).Assembly.GetName().Version.ToString();
+
+			//string version = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
+
+			Console.WriteLine(version);
+		}
 	}
 }
