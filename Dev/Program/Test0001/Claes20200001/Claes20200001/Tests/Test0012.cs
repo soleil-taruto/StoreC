@@ -102,17 +102,15 @@ namespace Charlotte.Tests
 			if (value < 0.0)
 				throw null; // Bad params
 
-			bool lessThenOne = value < 1.0;
-
-			double l = lessThenOne ? 0.0 : 1.0;
-			double r = lessThenOne ? 1.0 : value;
+			double l = 0.0;
+			double r = Math.Max(1.0, value);
 
 			for (int c = 0; c < 50; c++)
 			{
 				double m = (l + r) / 2.0;
 				double mv = m * m;
 
-				if (lessThenOne == mv < value)
+				if (mv < value)
 					l = m;
 				else
 					r = m;
