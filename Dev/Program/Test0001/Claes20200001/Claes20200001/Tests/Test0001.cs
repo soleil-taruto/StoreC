@@ -151,13 +151,9 @@ namespace Charlotte.Tests
 				ulong m = (l + r) / 2;
 
 				if (m * m <= value)
-				{
 					l = m;
-				}
 				else
-				{
 					r = m;
-				}
 			}
 			return (uint)l;
 		}
