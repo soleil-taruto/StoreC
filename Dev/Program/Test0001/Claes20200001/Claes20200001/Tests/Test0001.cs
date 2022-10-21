@@ -27,16 +27,30 @@ namespace Charlotte.Tests
 			Test01_b(10000, 1000000000000000000);
 			Test01_b(10000, 18440000000000000000);
 
-			Test01_c(10000, 100);
-			Test01_c(10000, 10000);
-			Test01_c(10000, 1000000);
-			Test01_c(10000, 100000000);
-			Test01_c(10000, 10000000000);
-			Test01_c(10000, 1000000000000);
-			Test01_c(10000, 100000000000000);
-			Test01_c(10000, 10000000000000000);
-			Test01_c(10000, 1000000000000000000);
-			Test01_c(10000, 9220000000000000000);
+			Test01_c(int.MaxValue - 3, (long)(int.MaxValue - 3) * (int.MaxValue - 3), (long)(int.MaxValue - 2) * (int.MaxValue - 2) - 1);
+			Test01_c(int.MaxValue - 2, (long)(int.MaxValue - 2) * (int.MaxValue - 2), (long)(int.MaxValue - 1) * (int.MaxValue - 1) - 1);
+			Test01_c(int.MaxValue - 1, (long)(int.MaxValue - 1) * (int.MaxValue - 1), (long)(int.MaxValue - 0) * (int.MaxValue - 0) - 1);
+			Test01_c(int.MaxValue - 0, (long)(int.MaxValue - 0) * (int.MaxValue - 0), ((long)int.MaxValue + 1) * ((long)int.MaxValue + 1) - 1);
+
+			SCommon.ToThrowPrint(() => IntSqrt(((long)int.MaxValue + 1) * ((long)int.MaxValue + 1) + 0));
+			SCommon.ToThrowPrint(() => IntSqrt(((long)int.MaxValue + 1) * ((long)int.MaxValue + 1) + 1));
+			SCommon.ToThrowPrint(() => IntSqrt(((long)int.MaxValue + 1) * ((long)int.MaxValue + 1) + 2));
+			SCommon.ToThrowPrint(() => IntSqrt(((long)int.MaxValue + 1) * ((long)int.MaxValue + 1) + 3));
+			SCommon.ToThrowPrint(() => IntSqrt(long.MaxValue - 0));
+			SCommon.ToThrowPrint(() => IntSqrt(long.MaxValue - 1));
+			SCommon.ToThrowPrint(() => IntSqrt(long.MaxValue - 2));
+			SCommon.ToThrowPrint(() => IntSqrt(long.MaxValue - 3));
+
+			Test01_d(10000, 100);
+			Test01_d(10000, 10000);
+			Test01_d(10000, 1000000);
+			Test01_d(10000, 100000000);
+			Test01_d(10000, 10000000000);
+			Test01_d(10000, 1000000000000);
+			Test01_d(10000, 100000000000000);
+			Test01_d(10000, 10000000000000000);
+			Test01_d(10000, 1000000000000000000);
+			Test01_d(10000, 4610000000000000000);
 
 			Console.WriteLine("OK!");
 		}
@@ -45,7 +59,7 @@ namespace Charlotte.Tests
 		{
 			for (ulong prm = minPrm; ; prm++)
 			{
-				ulong ret = UIntSqrt(prm);
+				uint ret = UIntSqrt(prm);
 
 				if (ret != expectRet)
 					throw null; // BUG !!!
@@ -55,9 +69,9 @@ namespace Charlotte.Tests
 				if (maxPrm <= prm)
 					break;
 
-				if (minPrm + 3000000 < maxPrm) // 多い -> ワープ
-					if (prm == minPrm + 1000000)
-						prm = maxPrm - 1000000;
+				if (minPrm + 3000000 < maxPrm) // 多い -> 中スキップ
+					if (minPrm + 1000000 < prm && prm < maxPrm - 1000000)
+						prm += 500000;
 			}
 			Console.WriteLine("OK");
 		}
@@ -78,7 +92,28 @@ namespace Charlotte.Tests
 			Console.WriteLine("OK");
 		}
 
-		private void Test01_c(int testCount, long prmScale)
+		private void Test01_c(int expectRet, long minPrm, long maxPrm)
+		{
+			for (long prm = minPrm; ; prm++)
+			{
+				int ret = IntSqrt(prm);
+
+				if (ret != expectRet)
+					throw null; // BUG !!!
+
+				// ----
+
+				if (maxPrm <= prm)
+					break;
+
+				if (minPrm + 3000000 < maxPrm) // 多い -> 中スキップ
+					if (minPrm + 1000000 < prm && prm < maxPrm - 1000000)
+						prm += 500000;
+			}
+			Console.WriteLine("OK");
+		}
+
+		private void Test01_d(int testCount, long prmScale)
 		{
 			for (int testcnt = 0; testcnt < testCount; testcnt++)
 			{
@@ -94,9 +129,13 @@ namespace Charlotte.Tests
 			Console.WriteLine("OK");
 		}
 
+		// ====
+		// ====
+		// ====
+
 		public static int IntSqrt(long value)
 		{
-			if (value < 0)
+			if (value < 0 || (1L << 62) <= value)
 				throw new ArgumentException();
 
 			return (int)UIntSqrt((ulong)value);
