@@ -6,18 +6,18 @@ using Charlotte.Commons;
 
 namespace Charlotte.Tests
 {
-	public class Test0014
+	public class Test0015
 	{
 		public void Test01()
 		{
-			IEnumerable<AngleInfo> angles = new AngleInfo[]
+			Queue<AngleInfo> angles = new Queue<AngleInfo>(new AngleInfo[]
 			{
 				new AngleInfo() { Degree =  0.0, Point = new D2Point(1.0, 0.0) },
 				new AngleInfo() { Degree = 90.0, Point = new D2Point(0.0, 1.0) },
-			};
+			});
 
 			for (int c = 0; c < 10; c++)
-				angles = Subdivide(angles);
+				Subdivide(angles);
 
 			foreach (AngleInfo angle in angles)
 			{
@@ -26,30 +26,30 @@ namespace Charlotte.Tests
 			}
 		}
 
-		private IEnumerable<AngleInfo> Subdivide(IEnumerable<AngleInfo> angles)
+		private void Subdivide(Queue<AngleInfo> angles)
 		{
-			IEnumerator<AngleInfo> reader = angles.GetEnumerator();
+			AngleInfo last = angles.Dequeue();
 
-			if (!reader.MoveNext())
-				throw new Exception("angles is empty");
+			angles.Enqueue(null);
 
-			AngleInfo last = reader.Current;
-
-			while (reader.MoveNext())
+			for (; ; )
 			{
-				AngleInfo next = reader.Current;
+				AngleInfo next = angles.Dequeue();
+
+				if (next == null)
+					break;
 
 				double mDeg = (last.Degree + next.Degree) / 2.0;
 				D2Point mPt = (last.Point + next.Point) / 2.0;
 				double d = Math.Sqrt(mPt.X * mPt.X + mPt.Y * mPt.Y);
 				mPt /= d;
 
-				yield return last;
-				yield return new AngleInfo() { Degree = mDeg, Point = mPt };
+				angles.Enqueue(last);
+				angles.Enqueue(new AngleInfo() { Degree = mDeg, Point = mPt });
 
 				last = next;
 			}
-			yield return last;
+			angles.Enqueue(last);
 		}
 
 		private class AngleInfo
