@@ -116,6 +116,6 @@ var<Picture_t> P_ButtonNext     = @@_Load(RESOURCE_Picture__Next_png);
 var<Picture_t> P_ButtonX        = @@_Load(RESOURCE_Picture__XButton_png);
 
 var<Picture_t> P_Bunny      = @@_Load(RESOURCE_Picture__bunny_top300_png);
-var<Picture_t> P_Bunny_H_01 = @@_Load(RESOURCE_Picture__bunny_h_01_jpg);
+var<Picture_t> P_Bunny_H_01 = @@_Load(RESOURCE_Picture__bunny_h_01_png);
 
 var<Picture_t> P_BattleBackground = @@_Load(RESOURCE_‚Ï‚­‚½‚»__Background_png);
