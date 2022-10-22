@@ -45,10 +45,7 @@ function <void> ExecuteAllActor()
 
 function <void> @(UNQN)_EACH()
 {
-	if (!NextVal(@@_EachTask))
-	{
-		error();
-	}
+	NextRun(@@_EachTask);
 }
 
 function* <generatorForTask> @@_EachTaskMain()

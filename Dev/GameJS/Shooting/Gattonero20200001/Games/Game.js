@@ -377,10 +377,7 @@ function <Shot_t[]> GetShots()
 */
 function <void> @@_DrawWall()
 {
-	if (!NextVal(@@_BackgroundTask)) // ? タスク終了 -> 想定外
-	{
-		error();
-	}
+	NextRun(@@_BackgroundTask);
 }
 
 /*

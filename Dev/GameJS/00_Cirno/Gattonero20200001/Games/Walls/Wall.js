@@ -18,8 +18,5 @@
 */
 function <void> DrawWall(<Wall_t> wall)
 {
-	if (!NextVal(wall.Draw))
-	{
-		error();
-	}
+	NextRun(wall.Draw);
 }
