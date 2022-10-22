@@ -141,6 +141,21 @@ namespace Charlotte.Tests
 			return (int)UIntSqrt((ulong)value);
 		}
 
+#if true
+		public static uint UIntSqrt(ulong value)
+		{
+			uint ret = 0;
+
+			for (uint bit = 1u << 31; bit != 0; bit >>= 1)
+			{
+				uint m = ret | bit;
+
+				if ((ulong)m * m <= value)
+					ret = m;
+			}
+			return ret;
+		}
+#else
 		public static uint UIntSqrt(ulong value)
 		{
 			ulong l = 0;
@@ -157,5 +172,6 @@ namespace Charlotte.Tests
 			}
 			return (uint)l;
 		}
+#endif
 	}
 }
