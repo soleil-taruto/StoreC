@@ -213,3 +213,14 @@ function <T> NextVal(generator)
 {
 	return generator.next().value;
 }
+
+/*
+	ジェネレータ・タスクの次のフレーム分を実行する。
+*/
+function <void> NextRun(generator)
+{
+	if (!NextVal(generator))
+	{
+		error();
+	}
+}
