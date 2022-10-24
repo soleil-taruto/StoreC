@@ -84,15 +84,21 @@ namespace Charlotte.Tests
 			}
 		}
 
+		private static long TCP_Count = -1L;
+
 		public static string ToCreatablePath_v2(string path)
 		{
 			string newPath = path;
-			int n = 1;
 
 			while (File.Exists(newPath) || Directory.Exists(newPath))
 			{
-				newPath = path + "-DUP-" + n;
-				n++;
+				if (TCP_Count == -1L)
+					TCP_Count = SCommon.SimpleDateTime.Now().ToTimeStamp();
+				else
+					TCP_Count++;
+
+				//newPath = SCommon.EraseExt(path) + " - " + TCP_Count + Path.GetExtension(path);
+				newPath = path + "#" + TCP_Count;
 			}
 			return newPath;
 		}
