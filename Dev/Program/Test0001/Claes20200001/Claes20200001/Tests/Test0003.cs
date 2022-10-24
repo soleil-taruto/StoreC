@@ -45,5 +45,32 @@ namespace Charlotte.Tests
 			Console.WriteLine(lNearly);
 			Console.WriteLine(rNearly);
 		}
+
+		public void Test02()
+		{
+			for (int c = 0; c < 10; c++)
+			{
+				File.WriteAllText(ToCreatablePath(Path.Combine(SCommon.GetOutputDir(), "Test02.txt")), "Test02.txt " + c, Encoding.ASCII);
+				File.WriteAllText(ToCreatablePath(Path.Combine(SCommon.GetOutputDir(), "Test02-Text")), "Test02-Text " + c, Encoding.ASCII);
+				File.WriteAllText(ToCreatablePath(Path.Combine(SCommon.GetOutputDir(), "Test02-Text.dat")), "Test02-Text.dat " + c, Encoding.ASCII);
+				File.WriteAllText(ToCreatablePath(Path.Combine(SCommon.GetOutputDir(), "Test02-Text.dat.txt")), "Test02-Text.dat.txt " + c, Encoding.ASCII);
+			}
+		}
+
+		// memo: 連番の前の文字を '~' にしたところ Test02.txt -> Test02~1.txt , Test02~3.txt が存在しないのにスキップされる謎現象に遭遇。@ 2022.10.24
+		// -- よくわからんので無難な文字列にしておく。
+
+		public static string ToCreatablePath(string path)
+		{
+			string newPath = path;
+			int n = 1;
+
+			while (File.Exists(newPath) || Directory.Exists(newPath))
+			{
+				newPath = SCommon.EraseExt(path) + "-DUP-" + n + Path.GetExtension(path);
+				n++;
+			}
+			return newPath;
+		}
 	}
 }
