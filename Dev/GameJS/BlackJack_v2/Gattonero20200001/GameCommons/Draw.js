@@ -45,9 +45,6 @@ function <void> Draw2(<Picture_t> picture, <double> x, <double> y, <double> a, <
 	var<int> w = GetPicture_W(picture);
 	var<int> h = GetPicture_H(picture);
 
-	x = @@_AntiOdd(x, w);
-	y = @@_AntiOdd(y, h);
-
 	w *= zw;
 	h *= zh;
 
@@ -68,15 +65,6 @@ function <void> Draw2(<Picture_t> picture, <double> x, <double> y, <double> a, <
 	Context.globalAlpha = 1.0;
 
 	@@_CheckHover(picture, CreateD4Rect(l, t, w, h));
-}
-
-function <double> @@_AntiOdd(<double> xy, <int> wh)
-{
-	if (wh % 2 == 1)
-	{
-		xy -= 0.5;
-	}
-	return xy;
 }
 
 var<Picture_t> HoveredPicture = null;
