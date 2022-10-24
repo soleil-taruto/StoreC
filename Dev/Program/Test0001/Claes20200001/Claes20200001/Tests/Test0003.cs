@@ -72,5 +72,29 @@ namespace Charlotte.Tests
 			}
 			return newPath;
 		}
+
+		public void Test03()
+		{
+			for (int c = 0; c < 10; c++)
+			{
+				File.WriteAllText(ToCreatablePath_v2(Path.Combine(SCommon.GetOutputDir(), "Test02.txt")), "Test02.txt " + c, Encoding.ASCII);
+				File.WriteAllText(ToCreatablePath_v2(Path.Combine(SCommon.GetOutputDir(), "Test02-Text")), "Test02-Text " + c, Encoding.ASCII);
+				File.WriteAllText(ToCreatablePath_v2(Path.Combine(SCommon.GetOutputDir(), "Test02-Text.dat")), "Test02-Text.dat " + c, Encoding.ASCII);
+				File.WriteAllText(ToCreatablePath_v2(Path.Combine(SCommon.GetOutputDir(), "Test02-Text.dat.txt")), "Test02-Text.dat.txt " + c, Encoding.ASCII);
+			}
+		}
+
+		public static string ToCreatablePath_v2(string path)
+		{
+			string newPath = path;
+			int n = 1;
+
+			while (File.Exists(newPath) || Directory.Exists(newPath))
+			{
+				newPath = path + "-DUP-" + n;
+				n++;
+			}
+			return newPath;
+		}
 	}
 }
