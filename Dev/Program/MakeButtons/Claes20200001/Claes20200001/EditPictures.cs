@@ -14,11 +14,9 @@ namespace Charlotte
 		/// <summary>
 		/// 画像の詳細が分からないようにマスク処理を施す。
 		/// 出力先：C:\1, 2, 3, ...
-		/// モザイクの大きさ：モザイク1枡の幅・高さピクセル数
 		/// </summary>
 		/// <param name="dir">入力フォルダ</param>
-		/// <param name="mosaicScale">モザイクの大きさ</param>
-		public static void MaskPictures(string dir, int mosaicScale)
+		public static void MaskPictures(string dir)
 		{
 			foreach (string file in Directory.GetFiles(dir))
 			{
@@ -32,17 +30,22 @@ namespace Charlotte
 					ext == ".png"
 					)
 				{
-					MaskPictureFile(file, mosaicScale);
+					MaskPictureFile(file);
 				}
 			}
 		}
 
-		private static void MaskPictureFile(string file, int mosaicScale)
+		private static void MaskPictureFile(string file)
 		{
+			Console.WriteLine("< " + file);
+			Console.WriteLine("> AUTO");
+
 			Canvas canvas = Canvas.LoadFromFile(file);
 
 			int w = canvas.W;
 			int h = canvas.H;
+
+			int mosaicScale = Math.Max(20, Math.Min(w, h) / 30);
 
 			int small_w = Math.Max(1, w / mosaicScale);
 			int small_h = Math.Max(1, h / mosaicScale);
@@ -54,16 +57,16 @@ namespace Charlotte
 
 			const string DR_CHR_FONT_NAME = "Impact";
 			const FontStyle DR_CHR_FONT_STYLE = FontStyle.Bold;
-			const int DR_CHR_BLUR_LV = 8;
+			const int DR_CHR_BLUR_LV = 4;
 
-			int DR_CHR_SCALE = (int)(mosaicScale * 1.3);
+			int DR_CHR_SCALE = (int)(mosaicScale * 1.7);
 			int DR_CHR_WH_MIN = 20;
 			int DR_CHR_ZURE = 10;
 
 			int DR_CHR_W = Math.Max(DR_CHR_WH_MIN, w / Math.Max(1, w / DR_CHR_SCALE));
 			int DR_CHR_H = Math.Max(DR_CHR_WH_MIN, h / Math.Max(1, h / DR_CHR_SCALE));
 
-			Canvas[] drChrImgs = "MASKED!".Select(chr =>
+			Canvas[] drChrImgs = "@MASKED".Select(chr =>
 			{
 				Canvas drChrImg = new Canvas(DR_CHR_W, DR_CHR_H);
 
@@ -106,7 +109,7 @@ namespace Charlotte
 					);
 				drChrImg.FilterAllDot(dot =>
 				{
-					dot.A = (int)(dot.A * 0.3);
+					dot.A = (int)(dot.A * 0.1);
 					return dot;
 				});
 

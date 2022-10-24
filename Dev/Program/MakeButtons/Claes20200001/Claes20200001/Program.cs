@@ -60,14 +60,14 @@ namespace Charlotte
 			//Main_20210421();
 			//Main_20210422();
 			//Main_20221001();
-			Main_20221023();
+			MaskPictures_01();
 
 			// --
 		}
 
-		private void Main_20221023()
+		private void MaskPictures_01()
 		{
-			EditPictures.MaskPictures(@"C:\temp", 30);
+			EditPictures.MaskPictures(@"C:\temp");
 		}
 
 		private void Main_20221001()
