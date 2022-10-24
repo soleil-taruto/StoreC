@@ -499,5 +499,10 @@ namespace Charlotte.Utilities
 				}
 			}
 		}
+
+		public void FilterAllDot(Func<I4Color, I4Color> filter)
+		{
+			this.FilterRect(filter, new I4Rect(0, 0, this.W, this.H));
+		}
 	}
 }

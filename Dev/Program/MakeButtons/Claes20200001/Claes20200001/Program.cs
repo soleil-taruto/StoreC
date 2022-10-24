@@ -59,9 +59,15 @@ namespace Charlotte
 			//new Test0003().Test01();
 			//Main_20210421();
 			//Main_20210422();
-			Main_20221001();
+			//Main_20221001();
+			Main_20221023();
 
 			// --
+		}
+
+		private void Main_20221023()
+		{
+			EditPictures.MaskPictures(@"C:\temp", 30);
 		}
 
 		private void Main_20221001()
