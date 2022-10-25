@@ -104,10 +104,21 @@ namespace Charlotte.Tests
 					TCP_LastTime++;
 				}
 
-				newPath = SCommon.EraseExt(path) + "@" + TCP_LastTime + Path.GetExtension(path);
-				//newPath = path + "@" + TCP_Count;
+				newPath = SCommon.EraseExt(path) + "_" + TCP_LastTime + Path.GetExtension(path);
+				//newPath = path + "_" + TCP_Count;
 			}
 			return newPath;
+		}
+
+		public void Test04()
+		{
+			for (int c = 0; c < 108; c++)
+			{
+				File.WriteAllText(SCommon.ToCreatablePath(Path.Combine(SCommon.GetOutputDir(), "Test02.txt")), "Test02.txt " + c, Encoding.ASCII);
+				File.WriteAllText(SCommon.ToCreatablePath(Path.Combine(SCommon.GetOutputDir(), "Test02-Text")), "Test02-Text " + c, Encoding.ASCII);
+				File.WriteAllText(SCommon.ToCreatablePath(Path.Combine(SCommon.GetOutputDir(), "Test02-Text.dat")), "Test02-Text.dat " + c, Encoding.ASCII);
+				File.WriteAllText(SCommon.ToCreatablePath(Path.Combine(SCommon.GetOutputDir(), "Test02-Text.dat.txt")), "Test02-Text.dat.txt " + c, Encoding.ASCII);
+			}
 		}
 	}
 }
