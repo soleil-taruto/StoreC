@@ -84,15 +84,7 @@ namespace Charlotte.Tests
 			}
 		}
 
-		private static long TCP_Count;
-
-		static Test0003()
-		{
-			long epoch = SCommon.TimeStampToSec.ToSec(19700101000000);
-			long now = SCommon.SimpleDateTime.Now().ToSec();
-
-			TCP_Count = (now - epoch) * 1000;
-		}
+		private static long TCP_LastTime = -1L;
 
 		public static string ToCreatablePath_v2(string path)
 		{
@@ -100,10 +92,20 @@ namespace Charlotte.Tests
 
 			while (File.Exists(newPath) || Directory.Exists(newPath))
 			{
-				newPath = SCommon.EraseExt(path) + "@" + TCP_Count + Path.GetExtension(path);
-				//newPath = path + "@" + TCP_Count;
+				if (TCP_LastTime == -1L)
+				{
+					long epoch = SCommon.TimeStampToSec.ToSec(19700101000000);
+					long now = SCommon.SimpleDateTime.Now().ToSec();
 
-				TCP_Count++;
+					TCP_LastTime = (now - epoch) * 1000;
+				}
+				else
+				{
+					TCP_LastTime++;
+				}
+
+				newPath = SCommon.EraseExt(path) + "@" + TCP_LastTime + Path.GetExtension(path);
+				//newPath = path + "@" + TCP_Count;
 			}
 			return newPath;
 		}
