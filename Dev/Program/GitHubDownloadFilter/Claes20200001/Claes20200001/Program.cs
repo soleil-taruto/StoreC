@@ -29,7 +29,7 @@ namespace Charlotte
 			{
 				Main4(ar);
 			}
-			Common.OpenOutputDirIfCreated();
+			SCommon.OpenOutputDirIfCreated();
 		}
 
 		private void Main3()
@@ -70,7 +70,7 @@ namespace Charlotte
 			if (!Directory.Exists(rDir))
 				throw new Exception("no rDir");
 
-			string wDir = Common.GetOutputDir();
+			string wDir = SCommon.GetOutputDir();
 			ProcMain.WriteLog("出力先へコピーしています...");
 			SCommon.CopyDir(rDir, wDir);
 			ProcMain.WriteLog("出力先へコピーしました。");
