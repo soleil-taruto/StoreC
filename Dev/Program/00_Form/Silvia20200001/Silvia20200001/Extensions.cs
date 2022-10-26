@@ -9,11 +9,12 @@ namespace Charlotte
 	{
 		public static IEnumerable<T> ForEach<T>(this IEnumerable<T> src, Action<T> action)
 		{
-			foreach (T element in src)
-			{
+			List<T> list = src.ToList();
+
+			foreach (T element in list)
 				action(element);
-				yield return element;
-			}
+
+			return list;
 		}
 
 		public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> src, Comparison<T> comp)

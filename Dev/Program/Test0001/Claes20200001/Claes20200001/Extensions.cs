@@ -9,7 +9,7 @@ namespace Charlotte
 	{
 		public static IEnumerable<T> ForEach<T>(this IEnumerable<T> src, Action<T> action)
 		{
-			List<T> list = src.ToList(); // Array, List 化は必要と判断 @ 2022.10.26
+			List<T> list = src.ToList();
 
 			foreach (T element in list)
 				action(element);
