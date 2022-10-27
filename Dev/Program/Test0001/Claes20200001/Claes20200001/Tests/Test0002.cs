@@ -25,8 +25,8 @@ namespace Charlotte.Tests
 			Console.WriteLine(SCommon.EraseExt(@"C:\TopDir\SubDir\Test02"));
 			Console.WriteLine(SCommon.EraseExt(@"C:\TopDir\SubDir\Test02.txt"));
 
-			/*
-			 * output ...
+#if false // output
+
 Test02
 Test02
 .\Test02
@@ -43,7 +43,7 @@ C:\TopDir\SubDir\Test02
 C:\TopDir\SubDir\Test02
 Press ENTER key.
 
-			 * */
+#endif
 
 		}
 	}
