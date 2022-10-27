@@ -10,15 +10,12 @@ namespace Charlotte.Tests
 	{
 		public void Test01()
 		{
-			D2Point[] Points = Enumerable.Range(0, 91).Select(dummy => new D2Point(0.5, 0.5)).ToArray();
+			D2Point[] Points = Enumerable.Range(0, 91).Select(dummy => new D2Point(0.0, 1.0)).ToArray();
 
 			Points[0].X = 1.0;
 			Points[0].Y = 0.0;
 
-			Points[90].X = 0.0;
-			Points[90].Y = 1.0;
-
-			for (int c = 0; c < 21000; c++)
+			for (int c = 0; c < 24000; c++)
 			{
 				for (int d = 1; d <= 89; d++)
 				{
