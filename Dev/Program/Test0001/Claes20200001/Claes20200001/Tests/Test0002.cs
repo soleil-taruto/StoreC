@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Charlotte.Commons;
 using System.IO;
+using Charlotte.Commons;
 
 namespace Charlotte.Tests
 {
