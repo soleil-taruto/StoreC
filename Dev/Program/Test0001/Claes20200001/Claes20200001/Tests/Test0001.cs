@@ -102,17 +102,23 @@ namespace Charlotte.Tests
 		{
 			//const int RANGE_SCALE = 100;
 			//const int RANGE_SCALE = 10000;
-			//const int RANGE_SCALE = 1000000;
-			const int RANGE_SCALE = 100000000;
+			const int RANGE_SCALE = 1000000;
+			//const int RANGE_SCALE = 100000000;
 
 			int[] ps = Enumerable.Range(3, RANGE_SCALE).Where(v => MillerRabin.IsPrime((ulong)v)).ToArray();
 			int maxGap_01 = -1;
 			int maxGap_02 = -1;
 			int maxGap_03 = -1;
+			int maxGap_04 = -1;
+			int maxGap_05 = -1;
+			int maxGap_06 = -1;
 
 			for (int i = 0; i + 1 < ps.Length; i++) maxGap_01 = Math.Max(maxGap_01, ps[i + 1] - ps[i]);
 			for (int i = 0; i + 2 < ps.Length; i++) maxGap_02 = Math.Max(maxGap_02, ps[i + 2] - ps[i]);
 			for (int i = 0; i + 3 < ps.Length; i++) maxGap_03 = Math.Max(maxGap_03, ps[i + 3] - ps[i]);
+			for (int i = 0; i + 4 < ps.Length; i++) maxGap_04 = Math.Max(maxGap_04, ps[i + 4] - ps[i]);
+			for (int i = 0; i + 5 < ps.Length; i++) maxGap_05 = Math.Max(maxGap_05, ps[i + 5] - ps[i]);
+			for (int i = 0; i + 6 < ps.Length; i++) maxGap_06 = Math.Max(maxGap_06, ps[i + 6] - ps[i]);
 
 			for (int i = 0; i + 1 < ps.Length; i++)
 				if (maxGap_01 == ps[i + 1] - ps[i])
@@ -125,6 +131,18 @@ namespace Charlotte.Tests
 			for (int i = 0; i + 3 < ps.Length; i++)
 				if (maxGap_03 == ps[i + 3] - ps[i])
 					Console.WriteLine("maxGap_03 : " + ps[i] + " ..(" + (ps[i + 3] - ps[i]) + ").. " + ps[i + 3]);
+
+			for (int i = 0; i + 4 < ps.Length; i++)
+				if (maxGap_04 == ps[i + 4] - ps[i])
+					Console.WriteLine("maxGap_04 : " + ps[i] + " ..(" + (ps[i + 4] - ps[i]) + ").. " + ps[i + 4]);
+
+			for (int i = 0; i + 5 < ps.Length; i++)
+				if (maxGap_05 == ps[i + 5] - ps[i])
+					Console.WriteLine("maxGap_05 : " + ps[i] + " ..(" + (ps[i + 5] - ps[i]) + ").. " + ps[i + 5]);
+
+			for (int i = 0; i + 6 < ps.Length; i++)
+				if (maxGap_06 == ps[i + 6] - ps[i])
+					Console.WriteLine("maxGap_06 : " + ps[i] + " ..(" + (ps[i + 6] - ps[i]) + ").. " + ps[i + 6]);
 		}
 	}
 }
