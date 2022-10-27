@@ -95,5 +95,36 @@ namespace Charlotte.Tests
 				return string.Format("{0} ..({1}).. {2}", this.PrimeLw, this.Gap, this.PrimeHi);
 			}
 		}
+
+		// ----
+
+		public void Test02()
+		{
+			//const int RANGE_SCALE = 100;
+			//const int RANGE_SCALE = 10000;
+			//const int RANGE_SCALE = 1000000;
+			const int RANGE_SCALE = 100000000;
+
+			int[] ps = Enumerable.Range(3, RANGE_SCALE).Where(v => MillerRabin.IsPrime((ulong)v)).ToArray();
+			int maxGap_01 = -1;
+			int maxGap_02 = -1;
+			int maxGap_03 = -1;
+
+			for (int i = 0; i + 1 < ps.Length; i++) maxGap_01 = Math.Max(maxGap_01, ps[i + 1] - ps[i]);
+			for (int i = 0; i + 2 < ps.Length; i++) maxGap_02 = Math.Max(maxGap_02, ps[i + 2] - ps[i]);
+			for (int i = 0; i + 3 < ps.Length; i++) maxGap_03 = Math.Max(maxGap_03, ps[i + 3] - ps[i]);
+
+			for (int i = 0; i + 1 < ps.Length; i++)
+				if (maxGap_01 == ps[i + 1] - ps[i])
+					Console.WriteLine("maxGap_01 : " + ps[i] + " ..(" + (ps[i + 1] - ps[i]) + ").. " + ps[i + 1]);
+
+			for (int i = 0; i + 2 < ps.Length; i++)
+				if (maxGap_02 == ps[i + 2] - ps[i])
+					Console.WriteLine("maxGap_02 : " + ps[i] + " ..(" + (ps[i + 2] - ps[i]) + ").. " + ps[i + 2]);
+
+			for (int i = 0; i + 3 < ps.Length; i++)
+				if (maxGap_03 == ps[i + 3] - ps[i])
+					Console.WriteLine("maxGap_03 : " + ps[i] + " ..(" + (ps[i + 3] - ps[i]) + ").. " + ps[i + 3]);
+		}
 	}
 }
