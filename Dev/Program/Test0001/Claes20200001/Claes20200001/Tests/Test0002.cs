@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Charlotte.Commons;
+using System.IO;
 
 namespace Charlotte.Tests
 {
@@ -25,26 +26,20 @@ namespace Charlotte.Tests
 			Console.WriteLine(SCommon.EraseExt(@"C:\TopDir\SubDir\Test02"));
 			Console.WriteLine(SCommon.EraseExt(@"C:\TopDir\SubDir\Test02.txt"));
 
-#if false // output
-
-Test02
-Test02
-.\Test02
-.\Test02
-SubDir\Test02
-SubDir\Test02
-\TopDir\Test02
-\TopDir\Test02
-C:\TopDir\Test02
-C:\TopDir\Test02
-\TopDir\SubDir\Test02
-\TopDir\SubDir\Test02
-C:\TopDir\SubDir\Test02
-C:\TopDir\SubDir\Test02
-Press ENTER key.
-
-#endif
-
+			Console.WriteLine(Path.GetExtension("Test02"));
+			Console.WriteLine(Path.GetExtension("Test02.txt"));
+			Console.WriteLine(Path.GetExtension(@".\Test02"));
+			Console.WriteLine(Path.GetExtension(@".\Test02.txt"));
+			Console.WriteLine(Path.GetExtension(@"SubDir\Test02"));
+			Console.WriteLine(Path.GetExtension(@"SubDir\Test02.txt"));
+			Console.WriteLine(Path.GetExtension(@"\TopDir\Test02"));
+			Console.WriteLine(Path.GetExtension(@"\TopDir\Test02.txt"));
+			Console.WriteLine(Path.GetExtension(@"C:\TopDir\Test02"));
+			Console.WriteLine(Path.GetExtension(@"C:\TopDir\Test02.txt"));
+			Console.WriteLine(Path.GetExtension(@"\TopDir\SubDir\Test02"));
+			Console.WriteLine(Path.GetExtension(@"\TopDir\SubDir\Test02.txt"));
+			Console.WriteLine(Path.GetExtension(@"C:\TopDir\SubDir\Test02"));
+			Console.WriteLine(Path.GetExtension(@"C:\TopDir\SubDir\Test02.txt"));
 		}
 	}
 }
