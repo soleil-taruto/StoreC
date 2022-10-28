@@ -7,8 +7,12 @@
 ^@(BU中央) 480 400
 ^@(BU右)   760 400
 
-^@(背景01) dat\Novel\Instagram\IMG_20160000_000040.jpg
-^@(背景02) dat\Novel\Instagram\IMG_20160000_000106.jpg
+^@(背景01) dat\素材Good\背景01.png
+^@(背景02) dat\素材Good\背景02.png
+
+^@(前面緑葉01) dat\素材Good\前面緑葉01.png
+^@(前面紅葉01) dat\素材Good\前面紅葉01.png
+^@(前面紅葉02) dat\素材Good\前面紅葉02.png
 
 ^@(結月ゆかり_普) dat\Novel\フリー素材\からい\ゆかマキ制服\yukari02.png
 ^@(結月ゆかり_喜) dat\Novel\フリー素材\からい\ゆかマキ制服\yukari03.png
