@@ -222,10 +222,10 @@ namespace Charlotte
 					throw new Exception("廃止されたプロジェクト：" + only2[0]);
 			}
 
-			if (SCommon.HasSame(rPaths, (Comparison<string>)CompDistribute))
+			if (SCommon.HasSame_Comp(rPaths, CompDistribute))
 				throw new Exception("配布元のプロジェクトの重複");
 
-			if (SCommon.HasSame(wPaths, (Comparison<string>)CompDistribute))
+			if (SCommon.HasSame_Comp(wPaths, CompDistribute))
 				throw new Exception("配布先のプロジェクトの重複");
 
 			int count = rPaths.Length;
