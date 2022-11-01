@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Charlotte.GameCommons.MaskGZDataUtils
+namespace Charlotte.GameTools
 {
 	public class MaskGZDataEng
 	{
