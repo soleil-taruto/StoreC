@@ -33,7 +33,7 @@ namespace Charlotte.Tests
 					n2dc[n] = dc;
 			}
 
-			Console.WriteLine(string.Format("1 以上 {0} 以下の整数において、それを初期値としたコラッツ数列が最初に 1 に達するまで「割る2」を行う回数が唯一のもの：", N_MAX));
+			Console.WriteLine(string.Format("1 以上 {0} 以下の整数において、それを初期値としたコラッツ数列が最初に 1 に達するまでに「割る2」を行う回数が唯一のもの：", N_MAX));
 
 			foreach (int n in n2dc.Keys.OrderBy(v => v))
 				Console.WriteLine(string.Format("初期値 {0} のとき割る2を {1} 回行う。割る2を行う回数が {2} 回となる初期値は {3} 以外に(この範囲には)ない。", n, n2dc[n], n2dc[n], n));
