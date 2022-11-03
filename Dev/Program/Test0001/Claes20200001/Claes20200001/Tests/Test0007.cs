@@ -8,8 +8,8 @@ namespace Charlotte.Tests
 	public class Test0007
 	{
 		//private const int N_MAX = 255;
-		private const int N_MAX = 65535;
-		//private const int N_MAX = 16777215;
+		//private const int N_MAX = 65535;
+		private const int N_MAX = 16777215;
 
 		public void Test01()
 		{
@@ -39,7 +39,7 @@ namespace Charlotte.Tests
 				Console.WriteLine(string.Format("初期値 {0} のとき割る2を {1} 回行う。割る2を行う回数が {2} 回となる初期値は {3} 以外に(この範囲には)ない。", n, n2dc[n], n2dc[n], n));
 		}
 
-		private static int GetCollatzDivideCount(int n)
+		private static int GetCollatzDivideCount(long n)
 		{
 			int dc = 0;
 
@@ -52,6 +52,9 @@ namespace Charlotte.Tests
 				}
 				else
 				{
+					if ((long.MaxValue - 1) / 3 < n)
+						throw new OverflowException();
+
 					n *= 3;
 					n++;
 				}
