@@ -38,12 +38,6 @@ Logo\Copyright.png
 	-> File 2022/08/13 (土) 04:48:14 / 2021/01/13 (水) 13:32:41 / 5,134
 Novel
 	-> Directory
-Novel\Instagram
-	-> Directory
-Novel\Instagram\IMG_20160000_000040.jpg
-	-> File 2022/11/07 (月) 15:37:11 / 2020/12/03 (木) 20:46:55 / 195,532
-Novel\Instagram\IMG_20160000_000106.jpg
-	-> File 2022/11/07 (月) 15:37:11 / 2021/01/11 (月) 13:46:34 / 100,697
 Novel\からい
 	-> Directory
 Novel\からい\_source.txt
