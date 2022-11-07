@@ -230,6 +230,7 @@
     <Compile Include="MainWin.Designer.cs">
       <DependentUpon>MainWin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Novels\Surfaces\Surface_ポチットさん.cs" />
     <Compile Include="Utilities\BitList.cs" />
     <Compile Include="Novels\Novel.cs" />
     <Compile Include="Novels\NovelAct.cs" />

@@ -7,16 +7,15 @@ using Charlotte.GameCommons;
 
 namespace Charlotte.Novels.Surfaces
 {
-	public class Surface_キャラクタ : Surface
+	public class Surface_ポチットさん : Surface
 	{
 		public double Draw_Rnd = DDUtils.Random.GetReal1() * Math.PI * 2.0;
 
-		public string ImageFile = @"dat\General\Dummy.png";
+		public DDPicture Image = Ground.I.Picture.PlayerStands[0][0];
 		public double A = 1.0;
 		public double Zoom = 1.0;
-		public bool MosaicFlag = false;
 
-		public Surface_キャラクタ(string typeName, string instanceName)
+		public Surface_ポチットさん(string typeName, string instanceName)
 			: base(typeName, instanceName)
 		{
 			this.Z = 20000;
@@ -34,14 +33,15 @@ namespace Charlotte.Novels.Surfaces
 
 		private void P_Draw()
 		{
-			const double BASIC_ZOOM = 0.5;
+			const double BASIC_ZOOM = 8.0;
 
 			DDDraw.SetAlpha(this.A);
-
-			if (this.MosaicFlag)
-				DDDraw.SetMosaic();
-
-			DDDraw.DrawBegin(DDCCResource.GetPicture(this.ImageFile), this.X, this.Y + Math.Sin(DDEngine.ProcFrame / 67.0 + this.Draw_Rnd) * 2.0);
+			DDDraw.SetMosaic();
+			DDDraw.DrawBegin(
+				this.Image,
+				this.X,
+				this.Y + 50.0
+				);
 			DDDraw.DrawZoom(BASIC_ZOOM * this.Zoom);
 			DDDraw.DrawEnd();
 			DDDraw.Reset();
@@ -51,11 +51,6 @@ namespace Charlotte.Novels.Surfaces
 		{
 			int c = 0;
 
-			if (command == "Image")
-			{
-				this.Act.AddOnce(() => this.ImageFile = arguments[c++]);
-				return;
-			}
 			if (command == "A")
 			{
 				this.Act.AddOnce(() => this.A = double.Parse(arguments[c++]));
@@ -64,11 +59,6 @@ namespace Charlotte.Novels.Surfaces
 			if (command == "Zoom")
 			{
 				this.Act.AddOnce(() => this.Zoom = double.Parse(arguments[c++]));
-				return;
-			}
-			if (command == "Mosaic")
-			{
-				this.Act.AddOnce(() => this.MosaicFlag = true);
 				return;
 			}
 			if (command == "待ち")
@@ -147,26 +137,36 @@ namespace Charlotte.Novels.Surfaces
 			}
 		}
 
-		private IEnumerable<bool> モード変更(string imageFile)
+		private IEnumerable<bool> モード変更(string destImageName)
 		{
-			string currImageFile = this.ImageFile;
-			string destImageFile = imageFile;
+			DDPicture currImage = this.Image;
+			DDPicture destImage;
+
+			switch (destImageName)
+			{
+				case "通常": destImage = Ground.I.Picture.Player; break;
+
+				// 新しいイメージ名をここへ追加..
+
+				default:
+					throw new DDError(); // never
+			}
 
 			foreach (DDScene scene in DDSceneUtils.Create(30))
 			{
 				if (NovelAct.IsFlush)
 				{
 					this.A = 1.0;
-					this.ImageFile = destImageFile;
+					this.Image = destImage;
 
 					yield break;
 				}
 				this.A = DDUtils.Parabola(scene.Rate * 0.5 + 0.5);
-				this.ImageFile = currImageFile;
+				this.Image = currImage;
 				this.P_Draw();
 
 				this.A = DDUtils.Parabola(scene.Rate * 0.5 + 0.0);
-				this.ImageFile = destImageFile;
+				this.Image = destImage;
 				this.P_Draw();
 
 				yield return true;
