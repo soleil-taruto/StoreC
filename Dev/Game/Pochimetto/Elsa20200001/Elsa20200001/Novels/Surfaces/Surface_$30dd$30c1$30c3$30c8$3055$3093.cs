@@ -40,7 +40,7 @@ namespace Charlotte.Novels.Surfaces
 			DDDraw.DrawBegin(
 				this.Image,
 				this.X,
-				this.Y + 50.0
+				this.Y + 40.0 + (DDEngine.ProcFrame / 50 % 2 * BASIC_ZOOM * -1)
 				);
 			DDDraw.DrawZoom(BASIC_ZOOM * this.Zoom);
 			DDDraw.DrawEnd();
