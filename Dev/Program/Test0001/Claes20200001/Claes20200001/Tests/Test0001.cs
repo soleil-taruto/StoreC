@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using Charlotte.Commons;
+using Charlotte.Utilities;
 
 namespace Charlotte.Tests
 {
@@ -11,7 +12,14 @@ namespace Charlotte.Tests
 	{
 		public void Test01()
 		{
-			// none
+			Canvas a = Canvas.LoadFromFile(@"C:\temp\1.jpg");
+			Canvas b = Canvas.LoadFromFile(@"C:\temp\2.jpg");
+
+			if (a.W != b.W)
+				throw null;
+
+			if (a.H != b.H)
+				throw null;
 		}
 	}
 }

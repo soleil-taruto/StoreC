@@ -144,7 +144,7 @@ namespace Charlotte.Novels.Surfaces
 
 			switch (destImageName)
 			{
-				case "通常": destImage = Ground.I.Picture.Player; break;
+				case "通常": destImage = Ground.I.Picture.PlayerStands[0][0]; break;
 
 				// 新しいイメージ名をここへ追加..
 
