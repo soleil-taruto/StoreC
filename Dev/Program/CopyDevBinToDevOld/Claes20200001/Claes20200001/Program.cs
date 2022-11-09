@@ -161,14 +161,14 @@ namespace Charlotte
 				}
 			}
 
-			string[] titles = Projects.Select(v => v.Title).DistinctOrderBy(SCommon.CompIgnoreCase).ToArray();
-
-			List<string> logs = new List<string>();
-
 			SCommon.DeletePath(OUTPUT_ROOT_DIR);
 			SCommon.CreateDir(OUTPUT_ROOT_DIR);
 
 			ProcMain.WriteLog("COPY-ST");
+
+			string[] titles = Projects.Select(v => v.Title).DistinctOrderBy(SCommon.CompIgnoreCase).ToArray();
+
+			List<string> logs = new List<string>();
 
 			using (WriteLogSection((message, writeLogOrig) =>
 			{
@@ -194,8 +194,6 @@ namespace Charlotte
 					SCommon.CopyDir(rDir, wDir);
 
 					// ----
-
-					// memo: dat/Receipt.csv を公開してしまわないように注意！
 
 					CopyResourceDir(rDir, wDir, "dat", true);
 					CopyResourceDir(rDir, wDir, "doc", false);
