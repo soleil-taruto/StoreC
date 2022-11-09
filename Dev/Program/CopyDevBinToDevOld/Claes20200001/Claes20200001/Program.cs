@@ -168,31 +168,113 @@ namespace Charlotte
 			SCommon.DeletePath(OUTPUT_ROOT_DIR);
 			SCommon.CreateDir(OUTPUT_ROOT_DIR);
 
-			Console.WriteLine("COPY-ST");
+			ProcMain.WriteLog("COPY-ST");
 
-			foreach (string title in titles)
+			using (WriteLogSection((message, writeLogOrig) =>
 			{
-				ProjectInfo[] titleProjects = Projects.Where(v => SCommon.EqualsIgnoreCase(v.Title, title)).ToArray();
+				writeLogOrig(message);
+				logs.Add("" + message);
+			}
+			))
+			{
+				foreach (string title in titles)
+				{
+					ProjectInfo[] titleProjects = Projects.Where(v => SCommon.EqualsIgnoreCase(v.Title, title)).ToArray();
 
-				Array.Sort(titleProjects, (a, b) => a.Date - b.Date);
+					Array.Sort(titleProjects, (a, b) => a.Date - b.Date);
 
-				ProjectInfo lastProject = titleProjects[titleProjects.Length - 1];
+					ProjectInfo lastProject = titleProjects[titleProjects.Length - 1];
 
-				string rDir = lastProject.SourceDir;
-				string wDir = Path.Combine(OUTPUT_ROOT_DIR, lastProject.Title, Path.GetFileName(lastProject.SourceDir));
+					string rDir = lastProject.SourceDir;
+					string wDir = Path.Combine(OUTPUT_ROOT_DIR, lastProject.Title, Path.GetFileName(lastProject.SourceDir));
 
-				Console.WriteLine("< " + rDir);
-				Console.WriteLine("> " + wDir);
+					ProcMain.WriteLog("< " + rDir);
+					ProcMain.WriteLog("> " + wDir);
 
-				logs.Add("< " + rDir);
-				logs.Add("> " + wDir);
+					SCommon.CopyDir(rDir, wDir);
 
-				SCommon.CopyDir(rDir, wDir);
+					// ----
+
+					// memo: dat/Receipt.csv を公開してしまわないように注意！
+
+					CopyResourceDir(rDir, wDir, "dat", true);
+					CopyResourceDir(rDir, wDir, "doc", false);
+				}
 			}
 
 			File.WriteAllLines(Path.Combine(OUTPUT_ROOT_DIR, "Copy.log"), logs, Encoding.UTF8);
 
-			Console.WriteLine("COPY-ED");
+			ProcMain.WriteLog("COPY-ED");
+		}
+
+		private IDisposable WriteLogSection(Action<object, Action<object>> routine)
+		{
+			Action<object> writeLogOrig = ProcMain.WriteLog;
+
+			ProcMain.WriteLog = message => routine(message, writeLogOrig);
+
+			return SCommon.GetAnonyDisposable(() => ProcMain.WriteLog = writeLogOrig);
+		}
+
+		private void CopyResourceDir(string rDir, string wDir, string resourceRelDir, bool outputFileListMode)
+		{
+			rDir = Path.Combine(Path.GetDirectoryName(rDir), resourceRelDir);
+			wDir = Path.Combine(Path.GetDirectoryName(wDir), resourceRelDir);
+
+			if (Directory.Exists(rDir))
+			{
+				if (outputFileListMode)
+				{
+					ProcMain.WriteLog("< " + rDir);
+					ProcMain.WriteLog("T " + wDir);
+
+					string treeFile = Path.Combine(wDir, "_Tree.txt");
+					string[] treeFileData = MakeTreeFileData(rDir);
+
+					SCommon.CreateDir(wDir);
+
+					File.WriteAllLines(treeFile, treeFileData, Encoding.UTF8);
+				}
+				else
+				{
+					ProcMain.WriteLog("< " + rDir);
+					ProcMain.WriteLog("> " + wDir);
+
+					SCommon.CopyDir(rDir, wDir);
+				}
+			}
+		}
+
+		private string[] MakeTreeFileData(string targDir)
+		{
+			string[] paths = Directory.GetDirectories(targDir, "*", SearchOption.AllDirectories)
+				.Concat(Directory.GetFiles(targDir, "*", SearchOption.AllDirectories))
+				.OrderBy(SCommon.Comp)
+				.ToArray();
+
+			List<string> dest = new List<string>();
+
+			foreach (string path in paths)
+			{
+				dest.Add(SCommon.ChangeRoot(path, targDir));
+
+				if (Directory.Exists(path))
+				{
+					dest.Add("\t-> Directory");
+				}
+				else
+				{
+					FileInfo info = new FileInfo(path);
+
+					dest.Add(string.Format(
+						"\t-> File {0} / {1} / {2:#,0}"
+						, new SCommon.SimpleDateTime(info.CreationTime)
+						, new SCommon.SimpleDateTime(info.LastWriteTime)
+						, info.Length
+						));
+				}
+			}
+			return dest.ToArray();
 		}
 	}
 }
