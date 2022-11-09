@@ -14,6 +14,7 @@ namespace Charlotte.Novels.Surfaces
 		public DDPicture Image = Ground.I.Picture.PlayerStands[0][0];
 		public double A = 1.0;
 		public double Zoom = 1.0;
+		public bool FacingLeft = false;
 
 		public Surface_ポチットさん(string typeName, string instanceName)
 			: base(typeName, instanceName)
@@ -43,6 +44,10 @@ namespace Charlotte.Novels.Surfaces
 				this.Y + 40.0 + (DDEngine.ProcFrame / 50 % 2 * BASIC_ZOOM * -1)
 				);
 			DDDraw.DrawZoom(BASIC_ZOOM * this.Zoom);
+
+			if (this.FacingLeft)
+				DDDraw.DrawZoom_X(-1.0);
+
 			DDDraw.DrawEnd();
 			DDDraw.Reset();
 		}
@@ -87,6 +92,11 @@ namespace Charlotte.Novels.Surfaces
 				double y = double.Parse(arguments[c++]);
 
 				this.Act.Add(SCommon.Supplier(this.スライド(x, y)));
+				return;
+			}
+			if (command == "キョロキョロ")
+			{
+				this.Act.Add(SCommon.Supplier(this.キョロキョロ()));
 				return;
 			}
 			ProcMain.WriteLog(command);
@@ -191,6 +201,24 @@ namespace Charlotte.Novels.Surfaces
 				}
 				this.X = DDUtils.AToBRate(currX, destX, DDUtils.SCurve(scene.Rate));
 				this.Y = DDUtils.AToBRate(currY, destY, DDUtils.SCurve(scene.Rate));
+				this.P_Draw();
+
+				yield return true;
+			}
+		}
+
+		private IEnumerable<bool> キョロキョロ()
+		{
+			bool facingLeftOrig = this.FacingLeft;
+
+			foreach (DDScene scene in DDSceneUtils.Create(45))
+			{
+				if (NovelAct.IsFlush)
+				{
+					this.FacingLeft = facingLeftOrig;
+					yield break;
+				}
+				this.FacingLeft = facingLeftOrig ^ (scene.Numer / 15 % 2 == 0);
 				this.P_Draw();
 
 				yield return true;
