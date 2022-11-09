@@ -181,11 +181,15 @@ namespace Charlotte.Tests
 				Console.WriteLine("histIndex: " + histIndex);
 				//SCommon.Pause();
 
-				SCommon.Batch(new string[]
-				{
-					@"CALL C:\home\GitHub\GitHubコミット前に実行してね.bat",
-					@"C:\apps\GitCommit\GitCommit.exe h" + histIndex.ToString("D2") + @" C:\home\GitHub\Store",
-				});
+				SCommon.Batch(
+					new string[]
+					{
+						@"CALL C:\home\GitHub\GitHubコミット前に実行してね.bat",
+						@"C:\apps\GitCommit\GitCommit.exe h" + histIndex.ToString("D2") + @" C:\home\GitHub\Store",
+					},
+					"",
+					SCommon.StartProcessWindowStyle_e.MINIMIZED
+					);
 			}
 			Console.WriteLine("COPY-ED");
 		}
