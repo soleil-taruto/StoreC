@@ -50,7 +50,7 @@ namespace Charlotte.Utilities
 			Array.Sort(dir_02s, (a, b) =>
 			{
 				int[] ver1 = GGPM_Dir02ToVersion(a);
-				int[] ver2 = GGPM_Dir02ToVersion(a);
+				int[] ver2 = GGPM_Dir02ToVersion(b);
 
 				return SCommon.Comp(ver1, ver2, SCommon.Comp) * -1; // DESC
 			});
@@ -62,7 +62,7 @@ namespace Charlotte.Utilities
 				if (File.Exists(file_03))
 				{
 					file_03 = SCommon.MakeFullPath(file_03); // 2bs
-					ProcMain.WriteLog("GGEF_M_file_03: " + file_03); // log
+					ProcMain.WriteLog("GGPM_file_03: " + file_03); // log
 					return file_03;
 				}
 			}
