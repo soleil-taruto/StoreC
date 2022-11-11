@@ -11,7 +11,7 @@ namespace Charlotte.Utilities
 	{
 		private const string NASA_DISTANCE_DATA_URL = "https://voyager.jpl.nasa.gov/assets/javascripts/distance_data.js";
 
-		private static readonly long JST_EPOCH_ZERO = SCommon.TimeStampToSec.ToSec(19700101090000);
+		private static readonly long EPOCH_TIME = SCommon.TimeStampToSec.ToSec(19700101000000);
 
 		public class DistanceInfo
 		{
@@ -41,7 +41,7 @@ namespace Charlotte.Utilities
 
 			public double GetKilometer(DateTime dateTime)
 			{
-				return this.GetKilometer(new SCommon.SimpleDateTime(dateTime).ToSec() - JST_EPOCH_ZERO); // JST_現時刻 - JST_エポック時 == UTC_エポック秒
+				return this.GetKilometer(new SCommon.SimpleDateTime(dateTime.ToUniversalTime()).ToSec() - EPOCH_TIME);
 			}
 		}
 
