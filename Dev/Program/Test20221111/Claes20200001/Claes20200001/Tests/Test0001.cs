@@ -62,7 +62,7 @@ namespace Charlotte.Tests
 
 		public void Test02()
 		{
-			VoyagerStatus vs = new VoyagerStatus(@"C:\temp\1.txt");
+			VoyagerStatus vs = new VoyagerStatus(@"C:\temp\Test0001_Test02_VoyagerStatus.txt");
 
 			Console.WriteLine(vs.TimeStamp);
 			Console.WriteLine(vs.V1S_Kilometer.ToString("F20"));
