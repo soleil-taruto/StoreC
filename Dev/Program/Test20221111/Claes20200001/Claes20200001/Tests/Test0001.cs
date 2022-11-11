@@ -59,5 +59,16 @@ namespace Charlotte.Tests
 				Console.WriteLine("ボイジャー1号が今の速度のまま進むとしたら太陽から1光日の距離に達するまであと " + remYear.ToString("F3") + " 年くらい。");
 			}
 		}
+
+		public void Test02()
+		{
+			VoyagerStatus vs = new VoyagerStatus(@"C:\temp\1.txt");
+
+			Console.WriteLine(vs.TimeStamp);
+			Console.WriteLine(vs.V1S_Kilometer.ToString("F20"));
+			Console.WriteLine(vs.V2S_Kilometer.ToString("F20"));
+			Console.WriteLine(vs.V1S_KilometerPerSecond.ToString("F20"));
+			Console.WriteLine(vs.V2S_KilometerPerSecond.ToString("F20"));
+		}
 	}
 }
