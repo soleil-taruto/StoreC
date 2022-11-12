@@ -110,5 +110,38 @@ namespace Charlotte.Tests
 			}
 			File.WriteAllLines(SCommon.NextOutputPath() + ".txt", dest, SCommon.ENCODING_SJIS);
 		}
+
+		public void Test03()
+		{
+			List<string> dest = new List<string>();
+
+			string[] files = Directory.GetFiles(ROOT_DIR, "*", SearchOption.AllDirectories);
+
+			foreach (string file in files)
+			{
+				string ext = Path.GetExtension(file).ToLower();
+
+				if (
+					ext == ".c" ||
+					ext == ".h"
+					)
+				{
+					string[] lines = File.ReadAllLines(file, SCommon.ENCODING_SJIS);
+
+					foreach (string line in lines)
+					{
+						if (line != "" && (line[line.Length - 1] <= ' ')) // ? 空白系文字で終わっている。
+						{
+							Console.WriteLine(file);
+							Console.WriteLine(line);
+
+							dest.Add(file);
+							dest.Add(line);
+						}
+					}
+				}
+			}
+			File.WriteAllLines(SCommon.NextOutputPath() + ".txt", dest, SCommon.ENCODING_SJIS);
+		}
 	}
 }
