@@ -123,7 +123,7 @@ namespace Charlotte.Utilities
 
 				// --
 
-				// 2022年8月28日の時点で v1 == 235.22億km , v2 == 195.27億km に達しているので今はそれよりも遠いはず。
+				// 2022年8月28日の時点で v1s == 235.22億km , v2s == 195.27億km に達しているので今はそれよりも遠いはず。
 
 				if (this.DistanceVoyager1Sun.GetKilometer(now) < 23522000000.0) // v1
 					throw new Exception("v1s Bad Distance");
