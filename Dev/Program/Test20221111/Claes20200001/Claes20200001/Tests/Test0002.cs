@@ -10,7 +10,8 @@ namespace Charlotte.Tests
 {
 	public class Test0002
 	{
-		private const string ROOT_DIR = @"C:\Factory";
+		private const string ROOT_DIR = @"C:\temp"; // dummy -- 処理的に危なくないけど念のためtempに振っておく
+		//private const string ROOT_DIR = @"C:\Factory";
 
 		private static string[] TARG_WORDS = new string[] { "if", "for", "while", "switch", "foreach" };
 
