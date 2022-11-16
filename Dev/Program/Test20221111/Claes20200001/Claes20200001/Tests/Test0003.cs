@@ -21,6 +21,18 @@ namespace Charlotte.Tests
 
 				Console.WriteLine(str);
 			}
+
+			foreach (char chr in SCommon.E_RemoveTrail("ABCDEF", 3))
+			{
+				Console.Write(chr);
+			}
+			Console.WriteLine("");
+
+			{
+				string str = new string(SCommon.E_RemoveTrail("ABCDEF", 3).ToArray());
+
+				Console.WriteLine(str);
+			}
 		}
 	}
 }
