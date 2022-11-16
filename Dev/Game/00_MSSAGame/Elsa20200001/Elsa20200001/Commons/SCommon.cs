@@ -570,6 +570,11 @@ namespace Charlotte.Commons
 			return list.Take(index).Concat(list.Skip(index + count));
 		}
 
+		public static IEnumerable<T> E_RemoveTrail<T>(IEnumerable<T> list, int count)
+		{
+			return SCommon.E_RemoveRange(list, list.Count() - count, count);
+		}
+
 		public static IEnumerable<T> E_InsertRange<T>(IEnumerable<T> list, int index, IEnumerable<T> listForInsert)
 		{
 			if (
