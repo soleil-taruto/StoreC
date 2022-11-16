@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Charlotte.Commons;
 
 namespace Charlotte.Tests
 {
@@ -9,7 +10,17 @@ namespace Charlotte.Tests
 	{
 		public void Test01()
 		{
-			// none
+			foreach (char chr in SCommon.E_InsertRange("ABCDEF", 3, "123"))
+			{
+				Console.Write(chr);
+			}
+			Console.WriteLine("");
+
+			{
+				string str = new string(SCommon.E_InsertRange("ABCDEF", 3, "123").ToArray());
+
+				Console.WriteLine(str);
+			}
 		}
 	}
 }
