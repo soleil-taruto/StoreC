@@ -12,7 +12,7 @@ namespace Charlotte.Tests
 	{
 		public void Test01()
 		{
-			MakeAliceCirnoTitlePicture("AliceCirno", 400, 100);
+			MakeAliceCirnoTitlePicture("AliceCirno", 480, 120);
 		}
 
 		private void MakeAliceCirnoTitlePicture(string title, int w, int h)
@@ -21,7 +21,7 @@ namespace Charlotte.Tests
 			Canvas cText;
 
 			{
-				int MARGIN = 20;
+				int MARGIN = 32;
 				int FONT_SIZE = h * 3;
 				string FONT_NAME = "メイリオ";
 
@@ -30,7 +30,7 @@ namespace Charlotte.Tests
 					title,
 					FONT_SIZE,
 					FONT_NAME,
-					FontStyle.Italic,
+					FontStyle.Italic | FontStyle.Bold,
 					new I3Color(255, 255, 255),
 					new I4Rect(MARGIN, MARGIN, w - MARGIN * 2, h - MARGIN * 2),
 					3
@@ -39,17 +39,15 @@ namespace Charlotte.Tests
 
 			canvas.Fill(new I4Color(0, 0, 0, 0));
 			canvas.DrawImage(cText, 0, 0, true);
-#if true
-			canvas = canvas.Blur(5);
+
+			canvas = canvas.Blur(10);
 			canvas.Deepen(2.0);
-			canvas = canvas.Blur(5);
-			canvas.Deepen(1.5);
-			canvas = canvas.Blur(5);
-#else // old
-			canvas = canvas.Blur(15);
-#endif
+			canvas = canvas.Blur(10);
+			canvas.Deepen(2.0);
+			canvas = canvas.Blur(10);
+
 			canvas.DrawImage(cText, 0, 0, true);
-			canvas.FilterAllDot(dot => { dot.A = SCommon.ToInt(dot.A * 0.97); return dot; });
+			canvas.FilterAllDot(dot => { dot.A = SCommon.ToInt(dot.A * 0.85); return dot; });
 			canvas.Save(SCommon.NextOutputPath() + ".png");
 		}
 	}
