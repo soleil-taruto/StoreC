@@ -1,14 +1,16 @@
+^@(¶O)  -280 280
 ^@(¶’[)   140 280
 ^@(¶)     200 280
 ^@(’†‰›)   480 280
 ^@(‰E)     760 280
 ^@(‰E’[)   820 280
+^@(‰EO)  1240 280
 ^@(BU¶)   200 400
 ^@(BU’†‰›) 480 400
 ^@(BU‰E)   760 400
 
-^@(”wi01) dat\Novel\Instagram\IMG_20160000_000040.jpg
-^@(”wi02) dat\Novel\Instagram\IMG_20160000_000106.jpg
+^@(”wi01) dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc73538.png
+^@(”wi02) dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc73543.png
 
 ^@(‹‚δ‚©‚θ_•) dat\Novel\‚©‚η‚Ά\yukari02.png
 ^@(‹‚δ‚©‚θ_μ) dat\Novel\‚©‚η‚Ά\yukari03.png
@@ -17,3 +19,46 @@
 
 ^@(BGM_“ϊν)  dat\Novel\–‚‰¤°\bgm_maoudamashii_piano07.mp3
 ^@(BGM_“ϊν2) dat\Novel\–‚‰¤°\bgm_maoudamashii_piano39.mp3
+
+^@(”wi_”—ν_Π)        dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc73538.png
+^@(”wi_η–ξ_Π)        dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc73543.png
+^@(”wi_g–‚Ω)          dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc73544.png
+^@(”wi_’n—μ“a)          dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc73545.png
+^@(”wi_”’‹ΚO)          dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc73546.png
+^@(”wi_‰i‰“’ΰ)          dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc73547.png
+^@(”wi_g–‚Ω_LΤ)     dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77065.png
+^@(”wi_g–‚Ω_‘ε}‘Ω) dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77066.png
+^@(”wi_¶‘΄)          dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77373.png
+^@(”wi_Δv‚Μ“Ή)        dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77374.png
+^@(”wi_O—dΈ’ΰ)        dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77375.png
+^@(”wi_‘ε‰Ϊε―‚Μ’r)      dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77376.png
+^@(”wi_“VE)            dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77377.png
+^@(”wi_–¶‰J–‚—Ή’ΰ)    dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77378.png
+^@(”wi_–²“a‘εβJ•_)      dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77379.png
+^@(”wi_–¶‚ΜΞ)          dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77380.png
+^@(”wi_–½@›)          dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77381.png
+^@(”wi_—H–Ύ‹E)        dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77382.png
+^@(”wi_ƒXƒLƒ})          dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77876.png
+^@(”wi_ƒ}ƒƒqƒK)        dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77877.png
+^@(”wi_¶‘z•—)        dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77878.png
+^@(”wi_Ί•‚Μ‘ς)        dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77879.png
+^@(”wi_O“r‚Μμ)        dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77880.png
+^@(”wi_η–ξ_Π_δ’)   dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77881.png
+^@(”wi__—μ•_)          dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77882.png
+^@(”wi_Ήηr‘D)          dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77884.png
+^@(”wi_‘Ύ—z‚Μ”¨)        dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77885.png
+^@(”wi_’n’κ“ssΕ[•”)  dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77886.png
+^@(”wi_”—ν_Π_K’i)   dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77887.png
+^@(”wi_”’‹ΚO_K’i)     dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77888.png
+^@(”wi_–@E)            dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77889.png
+^@(”wi_–‚–@‚ΜX)        dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77891.png
+^@(”wi_–³‰’Λ)          dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77892.png
+^@(”wi_–³–Ό‚Μ‹u)        dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77893.png
+^@(”wi_–½@›_•ζ’n)     dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77894.png
+^@(”wi_–ΐ‚Ά‚Μ’|—Ρ)      dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77895.png
+^@(”wi_—d‰φ‚ΜR)        dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77896.png
+^@(”wi_—d‰φb“Ή)        dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc77897.png
+^@(”wi_“cΙ“Ή)          dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc78901.png
+^@(”wi_μ‚Ζ‹΄)          dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc78902.png
+^@(”wi_X)              dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc78903.png
+^@(”wi_‰_C)            dat\Novel\‚©‚ρ‚Θ‚Ι‚η‚Ή\nc78904.png
