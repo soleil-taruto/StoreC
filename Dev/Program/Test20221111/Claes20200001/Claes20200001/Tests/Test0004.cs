@@ -41,12 +41,17 @@ namespace Charlotte.Tests
 			canvas.DrawImage(cText, 0, 0, true);
 
 			canvas = canvas.Blur(10);
-			canvas.Deepen(2.0);
+			canvas.Deepen(5.0);
 			canvas = canvas.Blur(10);
-			canvas.Deepen(2.0);
+			canvas.Deepen(3.0);
 			canvas = canvas.Blur(10);
 
-			cText.FilterAllDot(dot => { dot.R = SCommon.ToInt(dot.R * 0.75); return dot; });
+			cText.FilterAllDot(dot =>
+			{
+				dot.R = SCommon.ToInt(dot.R * 0.5);
+				dot.G = SCommon.ToInt(dot.G * 0.75);
+				return dot;
+			});
 
 			canvas.DrawImage(cText, 0, 0, true);
 			canvas.FilterAllDot(dot => { dot.A = SCommon.ToInt(dot.A * 0.666); return dot; });
