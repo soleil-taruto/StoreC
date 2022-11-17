@@ -12,7 +12,7 @@ namespace Charlotte.Tests
 	{
 		public void Test01()
 		{
-			MakeAliceCirnoTitlePicture("AliceCirno", 480, 120);
+			MakeAliceCirnoTitlePicture("Alice^Cirno", 540, 120);
 		}
 
 		private void MakeAliceCirnoTitlePicture(string title, int w, int h)
@@ -46,8 +46,10 @@ namespace Charlotte.Tests
 			canvas.Deepen(2.0);
 			canvas = canvas.Blur(10);
 
+			cText.FilterAllDot(dot => { dot.R = SCommon.ToInt(dot.R * 0.75); return dot; });
+
 			canvas.DrawImage(cText, 0, 0, true);
-			canvas.FilterAllDot(dot => { dot.A = SCommon.ToInt(dot.A * 0.85); return dot; });
+			canvas.FilterAllDot(dot => { dot.A = SCommon.ToInt(dot.A * 0.666); return dot; });
 			canvas.Save(SCommon.NextOutputPath() + ".png");
 		}
 	}
