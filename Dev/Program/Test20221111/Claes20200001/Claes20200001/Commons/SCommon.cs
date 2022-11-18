@@ -477,8 +477,6 @@ namespace Charlotte.Commons
 			}
 		}
 
-		#region IEnumerable *Range-Trail()
-
 		public static IEnumerable<T> E_RemoveRange<T>(IEnumerable<T> list, int index, int count)
 		{
 			if (
@@ -512,8 +510,6 @@ namespace Charlotte.Commons
 		{
 			return SCommon.E_InsertRange(list, list.Count(), listForAdd);
 		}
-
-		#endregion
 
 		public static T[] A_RemoveRange<T>(T[] arr, int index, int count)
 		{

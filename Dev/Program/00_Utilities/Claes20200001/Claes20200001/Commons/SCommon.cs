@@ -511,6 +511,51 @@ namespace Charlotte.Commons
 			return SCommon.E_InsertRange(list, list.Count(), listForAdd);
 		}
 
+		public static T[] A_RemoveRange<T>(T[] arr, int index, int count)
+		{
+			if (
+				arr == null ||
+				index < 0 || arr.Length < index ||
+				count < 0 || arr.Length - index < count
+				)
+				throw new ArgumentException();
+
+			T[] dest = new T[arr.Length - count];
+
+			Array.Copy(arr, 0, dest, 0, index);
+			Array.Copy(arr, index + count, dest, index, arr.Length - (index + count));
+
+			return dest;
+		}
+
+		public static T[] A_RemoveTrail<T>(T[] arr, int count)
+		{
+			return SCommon.A_RemoveRange(arr, arr.Count() - count, count);
+		}
+
+		public static T[] A_InsertRange<T>(T[] arr, int index, T[] arrForInsert)
+		{
+			if (
+				arr == null ||
+				arrForInsert == null ||
+				index < 0 || arr.Length < index
+				)
+				throw new ArgumentException();
+
+			T[] dest = new T[arr.Length + arrForInsert.Length];
+
+			Array.Copy(arr, 0, dest, 0, index);
+			Array.Copy(arrForInsert, 0, dest, index, arrForInsert.Length);
+			Array.Copy(arr, index, dest, index + arrForInsert.Length, arr.Length - index);
+
+			return dest;
+		}
+
+		public static T[] A_AddRange<T>(T[] arr, T[] arrForAdd)
+		{
+			return SCommon.A_InsertRange(arr, arr.Count(), arrForAdd);
+		}
+
 		private const int IO_TRY_MAX = 10;
 
 		public static void DeletePath(string path)
