@@ -66,6 +66,9 @@ namespace Charlotte.Tests
 
 		public void Test02()
 		{
+			Test02_a(3, 100);
+			Test02_a(5, 100);
+			Test02_a(7, 100);
 			Test02_a(10, 100);
 			Test02_a(100, 100);
 			Test02_a(1000, 100);

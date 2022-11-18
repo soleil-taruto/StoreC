@@ -530,7 +530,7 @@ namespace Charlotte.Commons
 
 		public static T[] A_RemoveTrail<T>(T[] arr, int count)
 		{
-			return SCommon.A_RemoveRange(arr, arr.Count() - count, count);
+			return SCommon.A_RemoveRange(arr, arr.Length - count, count);
 		}
 
 		public static T[] A_InsertRange<T>(T[] arr, int index, T[] arrForInsert)
@@ -553,7 +553,7 @@ namespace Charlotte.Commons
 
 		public static T[] A_AddRange<T>(T[] arr, T[] arrForAdd)
 		{
-			return SCommon.A_InsertRange(arr, arr.Count(), arrForAdd);
+			return SCommon.A_InsertRange(arr, arr.Length, arrForAdd);
 		}
 
 		private const int IO_TRY_MAX = 10;
