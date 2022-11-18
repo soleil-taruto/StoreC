@@ -62,3 +62,146 @@
 ^@(背景_川と橋)          dat\Novel\かんなにらせ\nc78902.png
 ^@(背景_森)              dat\Novel\かんなにらせ\nc78903.png
 ^@(背景_雲海)            dat\Novel\かんなにらせ\nc78904.png
+
+^@(BGM_破滅スパーク)               dat\ajapa\破滅スパーク.mp3
+^@(BGM_王女へ捧げる音楽)           dat\ajapa\王女へ捧げる音楽.mp3
+^@(BGM_オーエンとの戦い)           dat\ajapa\オーエンとの戦い.mp3
+^@(BGM_恋色ジャズタイム)           dat\ajapa\恋色ジャズタイム.mp3
+^@(BGM_三日月の宴)                 dat\ajapa\三日月の宴.mp3
+^@(BGM_ハッスル恋娘)               dat\ajapa\ハッスル恋娘.mp3
+^@(BGM_エイリアンの休日)           dat\ajapa\エイリアンの休日.mp3
+^@(BGM_風嵐神)                     dat\ajapa\風嵐神.mp3
+^@(BGM_太陽信仰狂信者)             dat\ajapa\太陽信仰狂信者.mp3
+^@(BGM_幻想郷物語)                 dat\ajapa\幻想郷物語.mp3
+^@(BGM_Flan In The Space)          dat\ajapa\Flan In The Space.mp3
+^@(BGM_あいまいな東方裁判)         dat\ajapa\あいまいな東方裁判.mp3
+^@(BGM_少女奇想天外曲)             dat\ajapa\少女奇想天外曲.mp3
+^@(BGM_信仰の為の大戦争)           dat\ajapa\信仰の為の大戦争.mp3
+^@(BGM_Unfortunate Parade)         dat\ajapa\Unfortunate Parade.mp3
+^@(BGM_少年、時の旅)               dat\ajapa\少年、時の旅.mp3
+^@(BGM_さとりんステップ)           dat\ajapa\さとりんステップ.mp3
+^@(BGM_闇ノミゾ知ル世界)           dat\ajapa\闇ノミゾ知ル世界.mp3
+^@(BGM_End of The End)             dat\ajapa\End of The End.mp3
+^@(BGM_天を貫く緋想の剣)           dat\ajapa\天を貫く緋想の剣.mp3
+^@(BGM_魔宮神殿)                   dat\ajapa\魔宮神殿.mp3
+^@(BGM_向日葵7s Coffee)            dat\ajapa\向日葵7s Coffee.mp3
+^@(BGM_破滅ジオスパーク)           dat\ajapa\破滅ジオスパーク.mp3
+^@(BGM_信仰とバベルの塔)           dat\ajapa\信仰とバベルの塔.mp3
+^@(BGM_神戦場)                     dat\ajapa\神戦場.mp3
+^@(BGM_落ちるが滝)                 dat\ajapa\落ちるが滝.mp3
+^@(BGM_終夏のハロウィン)           dat\ajapa\終夏のハロウィン.mp3
+^@(BGM_一人の大演奏)               dat\ajapa\一人の大演奏.mp3
+^@(BGM_椛の日常)                   dat\ajapa\椛の日常.mp3
+^@(BGM_天衣緋想月)                 dat\ajapa\天衣緋想月.mp3
+^@(BGM_ピコピコスパーク)           dat\ajapa\ピコピコスパーク.mp3
+^@(BGM_神秘の幻想郷)               dat\ajapa\神秘の幻想郷.mp3
+^@(BGM_煉獄への扉～月の表側)       dat\ajapa\煉獄への扉～月の表側.mp3
+^@(BGM_煉獄への扉～月の裏側)       dat\ajapa\煉獄への扉～月の裏側.mp3
+^@(BGM_不安と安らぎの貧困街)       dat\ajapa\不安と安らぎの貧困街.mp3
+^@(BGM_小人族の大冒険)             dat\ajapa\小人族の大冒険.mp3
+^@(BGM_宵月のうたかるた)           dat\ajapa\宵月のうたかるた.mp3
+^@(BGM_人形師による演奏)           dat\ajapa\人形師による演奏.mp3
+^@(BGM_ヴェネツィアワルツ)         dat\ajapa\ヴェネツィアワルツ.mp3
+^@(BGM_皆既月食と日本酒)           dat\ajapa\皆既月食と日本酒.mp3
+^@(BGM_大魔王、魔理沙様)           dat\ajapa\大魔王、魔理沙様.mp3
+^@(BGM_Dancing Furies)             dat\ajapa\Dancing Furies.mp3
+^@(BGM_春の桜嵐)                   dat\ajapa\春の桜嵐.mp3
+^@(BGM_天空の休息所)               dat\ajapa\天空の休息所.mp3
+^@(BGM_天神の舞踏会)               dat\ajapa\天神の舞踏会.mp3
+^@(BGM_破滅スパークエクセリオン)   dat\ajapa\破滅スパークエクセリオン.mp3
+^@(BGM_妖精の悪どいステップ)       dat\ajapa\妖精の悪どいステップ.mp3
+^@(BGM_残酷なまでに)               dat\ajapa\残酷なまでに.mp3
+^@(BGM_少女、哀悼の踊り)           dat\ajapa\少女、哀悼の踊り.mp3
+^@(BGM_チルノの日常)               dat\ajapa\チルノの日常.mp3
+^@(BGM_白い雪都)                   dat\ajapa\白い雪都.mp3
+^@(BGM_河童、未知の旅)             dat\ajapa\河童、未知の旅.mp3
+^@(BGM_四季、終の時)               dat\ajapa\四季、終の時.mp3
+^@(BGM_おてんば恋娘 オルゴールver) dat\ajapa\おてんば恋娘 オルゴールver.mp3
+^@(BGM_幻想郷の初秋)               dat\ajapa\幻想郷の初秋.mp3
+^@(BGM_フランのお菓子)             dat\ajapa\フランのお菓子.mp3
+^@(BGM_流れる椛の如く)             dat\ajapa\流れる椛の如く.mp3
+^@(BGM_冬とこれから)               dat\ajapa\冬とこれから.mp3
+^@(BGM_吐零の都)                   dat\ajapa\吐零の都.mp3
+^@(BGM_さとり行進曲)               dat\ajapa\さとり行進曲.mp3
+^@(BGM_月食、満ちるまで)           dat\ajapa\月食、満ちるまで.mp3
+^@(BGM_Desire Drive)               dat\ajapa\Desire Drive.mp3
+^@(BGM_吸血鬼の夏)                 dat\ajapa\吸血鬼の夏.mp3
+^@(BGM_フラン、荒野に出る)         dat\ajapa\フラン、荒野に出る.mp3
+^@(BGM_紅茶を飲みましょう)         dat\ajapa\紅茶を飲みましょう.mp3
+^@(BGM_緑豊かな幻想郷)             dat\ajapa\緑豊かな幻想郷.mp3
+^@(BGM_縁側から眺める海と舞踊)     dat\ajapa\縁側から眺める海と舞踊.mp3
+^@(BGM_曖昧な生き)                 dat\ajapa\曖昧な生き.mp3
+^@(BGM_こいしの大冒険)             dat\ajapa\こいしの大冒険.mp3
+^@(BGM_満月、夜風にあたり)         dat\ajapa\満月、夜風にあたり.mp3
+^@(BGM_満月、夜風にあたりピアノ)   dat\ajapa\満月、夜風にあたりピアノ.mp3
+^@(BGM_The Dispute World)          dat\ajapa\The Dispute World.mp3
+^@(BGM_恋色魔Star Space)           dat\ajapa\恋色魔Star Space.mp3
+^@(BGM_風嵐神_改)                  dat\ajapa\風嵐神_改.mp3
+^@(BGM_夜の野原)                   dat\ajapa\夜の野原.mp3
+^@(BGM_無数の積み石)               dat\ajapa\無数の積み石.mp3
+^@(BGM_吸血鬼の祈り)               dat\ajapa\吸血鬼の祈り.mp3
+^@(BGM_日照雨)                     dat\ajapa\日照雨.mp3
+^@(BGM_裁判長の非・非日常)         dat\ajapa\裁判長の非・非日常.mp3
+^@(BGM_中東巡り巡って)             dat\ajapa\中東巡り巡って.mp3
+^@(BGM_終秋のクリスマス)           dat\ajapa\終秋のクリスマス.mp3
+^@(BGM_銀月の前に)                 dat\ajapa\銀月の前に.mp3
+^@(BGM_The Labyrinth)              dat\ajapa\The Labyrinth.mp3
+^@(BGM_雪と花)                     dat\ajapa\雪と花.mp3
+^@(BGM_初夏、花開く)               dat\ajapa\初夏、花開く.mp3
+^@(BGM_宇宙トラベル)               dat\ajapa\宇宙トラベル.mp3
+^@(BGM_秋の宵木の葉の傍で)         dat\ajapa\秋の宵木の葉の傍で.mp3
+^@(BGM_モラヴィアワルツ)           dat\ajapa\モラヴィアワルツ.mp3
+^@(BGM_風吹く教会)                 dat\ajapa\風吹く教会.mp3
+^@(BGM_アンリアル)                 dat\ajapa\アンリアル.mp3
+^@(BGM_川辺でお休み)               dat\ajapa\川辺でお休み.mp3
+^@(BGM_壊れた羅針盤)               dat\ajapa\壊れた羅針盤.mp3
+^@(BGM_ラクダと旅する)             dat\ajapa\ラクダと旅する.mp3
+^@(BGM_うたた寝)                   dat\ajapa\うたた寝.mp3
+
+^@(アリス_普通) dat\dairi\アリスマーガトロイド\66144434_p0.png
+^@(アリス_好き) dat\dairi\アリスマーガトロイド\66144434_p1.png
+^@(アリス_キラ) dat\dairi\アリスマーガトロイド\66144434_p2.png
+^@(アリス_呪い) dat\dairi\アリスマーガトロイド\66144434_p3.png
+^@(アリス_焦り) dat\dairi\アリスマーガトロイド\66144434_p4.png
+^@(アリス_泣き) dat\dairi\アリスマーガトロイド\66144434_p5.png
+^@(アリス_驚き) dat\dairi\アリスマーガトロイド\66144434_p6.png
+^@(アリス_困惑) dat\dairi\アリスマーガトロイド\66144434_p7.png
+^@(アリス_キュ) dat\dairi\アリスマーガトロイド\66144434_p8.png
+^@(アリス_笑い) dat\dairi\アリスマーガトロイド\66144434_p9.png
+^@(アリス_怒り) dat\dairi\アリスマーガトロイド\66144434_p10.png
+
+^@(チルノ_普通) dat\dairi\チルノ\66022662_p0.png
+^@(チルノ_好き) dat\dairi\チルノ\66022662_p1.png
+^@(チルノ_キラ) dat\dairi\チルノ\66022662_p2.png
+^@(チルノ_呪い) dat\dairi\チルノ\66022662_p3.png
+^@(チルノ_焦り) dat\dairi\チルノ\66022662_p4.png
+^@(チルノ_泣き) dat\dairi\チルノ\66022662_p5.png
+^@(チルノ_驚き) dat\dairi\チルノ\66022662_p6.png
+^@(チルノ_困惑) dat\dairi\チルノ\66022662_p7.png
+^@(チルノ_キュ) dat\dairi\チルノ\66022662_p8.png
+^@(チルノ_笑い) dat\dairi\チルノ\66022662_p9.png
+^@(チルノ_怒り) dat\dairi\チルノ\66022662_p10.png
+
+; 霊夢・魔理沙には「好き」が無い。焦り⇒ムカ
+
+^@(博麗霊夢_普通) dat\dairi\博麗霊夢\65943351_p0.png
+^@(博麗霊夢_キラ) dat\dairi\博麗霊夢\65943351_p1.png
+^@(博麗霊夢_呪い) dat\dairi\博麗霊夢\65943351_p2.png
+^@(博麗霊夢_ムカ) dat\dairi\博麗霊夢\65943351_p3.png
+^@(博麗霊夢_泣き) dat\dairi\博麗霊夢\65943351_p4.png
+^@(博麗霊夢_驚き) dat\dairi\博麗霊夢\65943351_p5.png
+^@(博麗霊夢_困惑) dat\dairi\博麗霊夢\65943351_p6.png
+^@(博麗霊夢_キュ) dat\dairi\博麗霊夢\65943351_p7.png
+^@(博麗霊夢_笑い) dat\dairi\博麗霊夢\65943351_p8.png
+^@(博麗霊夢_怒り) dat\dairi\博麗霊夢\65943351_p9.png
+
+^@(霧雨魔理沙_普通) dat\dairi\霧雨魔理沙\65959466_p0.png
+^@(霧雨魔理沙_キラ) dat\dairi\霧雨魔理沙\65959466_p1.png
+^@(霧雨魔理沙_呪い) dat\dairi\霧雨魔理沙\65959466_p2.png
+^@(霧雨魔理沙_ムカ) dat\dairi\霧雨魔理沙\65959466_p3.png
+^@(霧雨魔理沙_泣き) dat\dairi\霧雨魔理沙\65959466_p4.png
+^@(霧雨魔理沙_驚き) dat\dairi\霧雨魔理沙\65959466_p5.png
+^@(霧雨魔理沙_困惑) dat\dairi\霧雨魔理沙\65959466_p6.png
+^@(霧雨魔理沙_キュ) dat\dairi\霧雨魔理沙\65959466_p7.png
+^@(霧雨魔理沙_笑い) dat\dairi\霧雨魔理沙\65959466_p8.png
+^@(霧雨魔理沙_怒り) dat\dairi\霧雨魔理沙\65959466_p9.png
