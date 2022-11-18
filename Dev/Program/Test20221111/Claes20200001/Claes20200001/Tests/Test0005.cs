@@ -10,7 +10,7 @@ namespace Charlotte.Tests
 	{
 		public void Test01()
 		{
-			const int ARR_LEN = 30000000;
+			const int ARR_LEN = 50000000;
 
 			{
 				int[] arr = Enumerable.Range(1, ARR_LEN).ToArray();
@@ -36,9 +36,22 @@ namespace Charlotte.Tests
 
 				IEnumerable<int> enu = arr.Take(arr.Length);
 
-				PrintExecuteTime(() => Console.WriteLine(enu.Count())); // 0.2s
-				PrintExecuteTime(() => Console.WriteLine(enu.Count())); // 0.2s
-				PrintExecuteTime(() => Console.WriteLine(enu.Count())); // 0.2s
+				PrintExecuteTime(() => Console.WriteLine(enu.Count())); // 0.3s
+				PrintExecuteTime(() => Console.WriteLine(enu.Count())); // 0.3s
+				PrintExecuteTime(() => Console.WriteLine(enu.Count())); // 0.3s
+			}
+
+			{
+				List<int> list = new List<int>();
+
+				foreach (int value in Enumerable.Range(1, ARR_LEN))
+					list.Add(value);
+
+				IEnumerable<int> enu = list.Take(list.Count);
+
+				PrintExecuteTime(() => Console.WriteLine(enu.Count())); // 0.5s
+				PrintExecuteTime(() => Console.WriteLine(enu.Count())); // 0.5s
+				PrintExecuteTime(() => Console.WriteLine(enu.Count())); // 0.5s
 			}
 		}
 
