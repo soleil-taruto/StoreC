@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
-using Charlotte.Commons;
 using System.IO;
+using Charlotte.Commons;
 using Charlotte.Utilities;
 
 namespace Charlotte.Tests
@@ -13,62 +13,70 @@ namespace Charlotte.Tests
 	{
 		public void Test01()
 		{
-			Test01_a(@"C:\temp\2022-11-22_16-49-06_000.jpg");
+			foreach (string file in Directory.GetFiles(@"C:\temp"))
+			{
+				string ext = Path.GetExtension(file).ToLower();
+
+				if (
+					ext == ".bmp" ||
+					ext == ".gif" ||
+					ext == ".jpg" ||
+					ext == ".jpeg" ||
+					ext == ".png"
+					)
+				{
+					Test01_a(file);
+				}
+			}
 		}
 
 		private void Test01_a(string file)
 		{
-			Canvas canvas = Canvas.LoadFromFile(file);
-
-			canvas.FilterAllDot(dot =>
+			for (int mode = 1; mode <= 2; mode++)
 			{
-				dot = new I4Color(
-					255 - (255 - dot.R) / 2,
-					255 - (255 - dot.G) / 2,
-					255 - (255 - dot.B) / 2,
-					dot.A
-					);
+				foreach (double rate in new double[] { 0.1, 0.333, 3.0, 10.0 })
+				{
+					Console.WriteLine(mode + ", " + rate);
 
-				return dot;
-			});
+					Canvas canvas = Canvas.LoadFromFile(file);
 
-			canvas.Save(SCommon.NextOutputPath() + ".png");
+					switch (mode)
+					{
+						case 1:
+							canvas.FilterAllDot(dot =>
+							{
+								dot = new I4Color(
+									SCommon.ToInt(Math.Min(255.0, dot.R * rate)),
+									SCommon.ToInt(Math.Min(255.0, dot.G * rate)),
+									SCommon.ToInt(Math.Min(255.0, dot.B * rate)),
+									dot.A
+									);
 
-			// ----
+								return dot;
+							});
+							break;
 
-			canvas = Canvas.LoadFromFile(file);
+						case 2:
+							canvas.FilterAllDot(dot =>
+							{
+								dot = new I4Color(
+									SCommon.ToInt(Math.Max(0.0, 255.0 - (255.0 - dot.R) * rate)),
+									SCommon.ToInt(Math.Max(0.0, 255.0 - (255.0 - dot.G) * rate)),
+									SCommon.ToInt(Math.Max(0.0, 255.0 - (255.0 - dot.B) * rate)),
+									dot.A
+									);
 
-			canvas.FilterAllDot(dot =>
-			{
-				dot = new I4Color(
-					Math.Min(255, dot.R * 2),
-					Math.Min(255, dot.G * 2),
-					Math.Min(255, dot.B * 2),
-					dot.A
-					);
+								return dot;
+							});
+							break;
 
-				return dot;
-			});
+						default:
+							throw null; // never
+					}
 
-			canvas.Save(SCommon.NextOutputPath() + ".png");
-
-			// ----
-
-			canvas = Canvas.LoadFromFile(file);
-
-			canvas.FilterAllDot(dot =>
-			{
-				dot = new I4Color(
-					Math.Min(255, dot.R * 4),
-					Math.Min(255, dot.G * 4),
-					Math.Min(255, dot.B * 4),
-					dot.A
-					);
-
-				return dot;
-			});
-
-			canvas.Save(SCommon.NextOutputPath() + ".png");
+					canvas.Save(SCommon.NextOutputPath() + ".png");
+				}
+			}
 		}
 	}
 }
