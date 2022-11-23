@@ -77,6 +77,40 @@ namespace Charlotte.Tests
 					canvas.Save(SCommon.NextOutputPath() + ".png");
 				}
 			}
+			for (int mode = 0; mode <= 6; mode++)
+			{
+				Console.WriteLine(mode);
+
+				int lw = (mode + 0) * 32 - 0;
+				int hi = (mode + 1) * 32 - 1;
+
+				Canvas canvas = Canvas.LoadFromFile(file);
+
+				Func<int, int> colFltr = value =>
+				{
+					if (value <= lw)
+						return 0;
+
+					if (hi <= value)
+						return 255;
+
+					return SCommon.ToInt((value - lw) * 255.0 / (hi - lw));
+				};
+
+				canvas.FilterAllDot(dot =>
+				{
+					dot = new I4Color(
+						colFltr(dot.R),
+						colFltr(dot.G),
+						colFltr(dot.B),
+						dot.A
+						);
+
+					return dot;
+				});
+
+				canvas.Save(SCommon.NextOutputPath() + ".png");
+			}
 		}
 	}
 }
