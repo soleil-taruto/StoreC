@@ -108,7 +108,7 @@ namespace Charlotte.Tests
 
 		public void Test02()
 		{
-			for (int testcnt = 1; testcnt < 100; testcnt++)
+			for (int testcnt = 0; testcnt < 100; testcnt++)
 			{
 				var arr = GetRandIntList(60)
 					.ToArray().Skip(0); // リストを確定する。
