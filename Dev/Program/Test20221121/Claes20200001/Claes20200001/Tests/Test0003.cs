@@ -12,7 +12,9 @@ namespace Charlotte.Tests
 		{
 			for (int testcnt = 0; testcnt < 30; testcnt++)
 			{
-				int[] arr1 = GetRandIntList().ToArray();
+				//int[] arr1 = GetRandIntList(100).ToArray();
+				//int[] arr1 = GetRandIntList(1000).ToArray();
+				int[] arr1 = GetRandIntList(10000).ToArray();
 				int[] arr2 = arr1.ToArray(); // Cloning
 
 				Array.Sort(arr1, (a, b) => a - b);
@@ -28,12 +30,12 @@ namespace Charlotte.Tests
 			Console.WriteLine("OK!");
 		}
 
-		private static IEnumerable<T> MergeSort<T>(IList<T> list, Comparison<T> comp)
+		private static IEnumerable<T> MergeSort<T>(IEnumerable<T> list, Comparison<T> comp)
 		{
-			if (list.Count == 0)
-				return new T[0];
-
 			Queue<IEnumerable<T>> q = new Queue<IEnumerable<T>>(list.Select(v => new T[] { v }));
+
+			if (q.Count == 0)
+				return new T[0];
 
 			while (2 <= q.Count)
 				q.Enqueue(E_Merge(q.Dequeue(), q.Dequeue(), comp));
@@ -93,15 +95,27 @@ namespace Charlotte.Tests
 			return (int)(GetRandUInt() % (uint)modulo);
 		}
 
-		private static IEnumerable<int> GetRandIntList()
+		private static IEnumerable<int> GetRandIntList(int scale)
 		{
-			int count = GetRandInt(10000);
-			int limit = GetRandInt(10000) + 1;
+			int count = GetRandInt(scale);
+			int limit = GetRandInt(scale) + 1;
 
 			for (int index = 0; index < count; index++)
 				yield return GetRandInt(limit);
 		}
 
 		// ====
+
+		public void Test02()
+		{
+			for (int testcnt = 0; testcnt < 30; testcnt++)
+			{
+				var arr = GetRandIntList(20);
+
+				arr = MergeSort(arr, (a, b) => a - b);
+
+				Console.WriteLine(string.Join(", ", arr));
+			}
+		}
 	}
 }
