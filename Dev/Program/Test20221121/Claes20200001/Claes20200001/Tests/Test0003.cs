@@ -108,13 +108,16 @@ namespace Charlotte.Tests
 
 		public void Test02()
 		{
-			for (int testcnt = 0; testcnt < 30; testcnt++)
+			for (int testcnt = 1; testcnt < 100; testcnt++)
 			{
-				var arr = GetRandIntList(20);
+				var arr = GetRandIntList(60)
+					.ToArray().Skip(0); // リストを確定する。
+
+				Console.WriteLine("Before: " + string.Join(", ", arr));
 
 				arr = MergeSort(arr, (a, b) => a - b);
 
-				Console.WriteLine(string.Join(", ", arr));
+				Console.WriteLine("After : " + string.Join(", ", arr));
 			}
 		}
 	}
