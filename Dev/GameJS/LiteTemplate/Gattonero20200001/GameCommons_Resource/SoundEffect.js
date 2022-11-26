@@ -11,4 +11,4 @@ function <SE_t> @@_Load(<string> url)
 
 // 慣習的プリフィクス == S_
 
-var<SE_t> S_Coin04 = @@_Load(RESOURCE_KomoriTaira__coin04_mp3);
+var<SE_t> S_Coin04 = @@_Load(RESOURCE_小森平__coin04_mp3);
