@@ -7,6 +7,7 @@ function* <generatorForTask> GameMain()
 	// 音楽を再生する。
 	Play(M_MidnightStreet);
 
+	// 無限ループ
 	for (; ; )
 	{
 		// カード位置(X座標)
