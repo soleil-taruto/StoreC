@@ -1,10 +1,13 @@
-BlackJack_v2
-============
+========
+Template
+========
 
 
-ブラックジャック・テスト実装
+JSゲームのテンプレート
 
 
-ビルド済みページ：
-http://ornithopter.ccsp.mydns.jp/HPStore/GameJS/BlackJack_v2
+----
+ビルド手順
+
+TODO
 

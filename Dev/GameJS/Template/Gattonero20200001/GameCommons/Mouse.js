@@ -62,7 +62,7 @@ function <Action event> @@_GetEvMouse(<Action double double> touch)
 	return ret;
 }
 
-function <void> @(UNQN)_INIT()
+function <void> Mouse_INIT()
 {
 	if (window.ontouchstart === null)
 	{
@@ -81,7 +81,7 @@ function <void> @(UNQN)_INIT()
 
 var<int> @@_DownCount;
 
-function <void> @(UNQN)_EACH()
+function <void> Mouse_EACH()
 {
 	if (1 <= @@_DownCount) // ? 前回_押下
 	{
@@ -106,8 +106,6 @@ function <void> @(UNQN)_EACH()
 		}
 	}
 }
-
-// ★★★ ボタン・キー押下は 1 マウス押下は -1 で判定する。
 
 /*
 	マウスボタンの押下(スクリーン・タッチ)状態を得る。

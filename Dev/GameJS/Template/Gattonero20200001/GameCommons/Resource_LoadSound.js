@@ -13,7 +13,6 @@
 
 function <Sound_t> LoadSound(<string> url)
 {
-	LOGPOS();
 	Loading++;
 
 	var<map> m = {};
@@ -24,7 +23,6 @@ function <Sound_t> LoadSound(<string> url)
 
 	if (DEBUG)
 	{
-		LOGPOS();
 		m.Sound.Handle = new Audio(m.URL);
 		m.Sound.Handle.load();
 		Loading--;
@@ -60,7 +58,6 @@ function <void> @@_TryLoad(<map> m)
 
 	m.Loaded = function()
 	{
-		LOGPOS();
 		m.Sound.Handle.removeEventListener("canplaythrough", m.Loaded);
 		m.Sound.Handle.removeEventListener("error", m.Errored);
 
@@ -73,7 +70,6 @@ function <void> @@_TryLoad(<map> m)
 
 	m.Errored = function()
 	{
-		LOGPOS();
 		m.Sound.Handle.removeEventListener("canplaythrough", m.Loaded);
 		m.Sound.Handle.removeEventListener("error", m.Errored);
 		m.Sound.Handle = null;
@@ -92,7 +88,6 @@ function <void> @@_TryLoad(<map> m)
 		}
 	};
 
-	LOGPOS();
 	m.Sound.Handle = new Audio(m.URL);
 	m.Sound.Handle.addEventListener("canplaythrough", m.Loaded);
 	m.Sound.Handle.addEventListener("error", m.Errored);

@@ -32,14 +32,7 @@ function* <generatorForTask> @@_Main()
 {
 	if (DEBUG)
 	{
-		// -- choose one --
-
-//		yield* Test01();
-//		yield* Test02();
-//		yield* Test03();
 		yield* @@_Main2();
-
-		// --
 	}
 	else
 	{

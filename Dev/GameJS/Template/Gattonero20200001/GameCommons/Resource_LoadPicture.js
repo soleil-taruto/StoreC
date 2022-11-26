@@ -13,14 +13,12 @@
 
 function <Picture_t> LoadPicture(<string> url)
 {
-	LOGPOS();
 	Loading++;
 
 	var image = new Image();
 
 	image.onload = function()
 	{
-		LOGPOS();
 		Loading--;
 	};
 

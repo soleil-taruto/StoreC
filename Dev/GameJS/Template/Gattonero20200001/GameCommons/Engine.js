@@ -2,14 +2,7 @@
 	ゲーム用メインモジュール
 */
 
-// *_INIT イベントのリスト
-var<Action[]> @@_INIT_Events = [ @(INIT) ];
-
-// *_EACH イベントのリスト
-var<Action[]> @@_EACH_Events = [ @(EACH) ];
-
-// アプリケーション側の処理
-// ジェネレータであること。
+// メイン処理
 var<generatorForTask> @@_AppMain;
 
 // 描画先Canvasタグ
@@ -18,9 +11,11 @@ var Canvas;
 // 描画先Canvasを格納するDivタグ
 var CanvasBox;
 
-// ゲーム用メイン
-// appMain: アプリケーション側の処理
-// -- ジェネレータであること。
+/*
+	ゲームを実行する。
+
+	appMain: メイン処理
+*/
 function <void> ProcMain(<generatorForTask> appMain)
 {
 	@@_AppMain = appMain;
@@ -45,14 +40,8 @@ function <void> ProcMain(<generatorForTask> appMain)
 	CanvasBox.innerHTML = "";
 	CanvasBox.appendChild(Canvas);
 
-	for (var<Action> event of @@_INIT_Events)
-	{
-		LOGPOS();
-		event();
-		LOGPOS();
-	}
+	Mouse_INIT();
 
-	LoadLocalStorage();
 	@@_Anime();
 }
 
@@ -65,6 +54,9 @@ var<int> ProcFrame = 0;
 // 描画先コンテキスト(描画先スクリーン)
 var Context = null;
 
+/*
+	ゲームのフレーム処理
+*/
 function <void> @@_Anime()
 {
 	var<int> currTime = new Date().getTime();
@@ -77,18 +69,13 @@ function <void> @@_Anime()
 		Context = Canvas.getContext("2d");
 		@@_AppMain.next();
 
-		for (var<Action> event of @@_EACH_Events)
-		{
-			event();
-		}
+		Mouse_EACH();
+		Music_EACH();
+		SoundEffect_EACH();
 
 		Context = null;
 		@@_HzChaserTime += 16;
 		ProcFrame++;
-	}
-	else
-	{
-		LOGPOS();
 	}
 	requestAnimationFrame(@@_Anime);
 }

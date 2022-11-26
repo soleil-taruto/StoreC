@@ -6,7 +6,7 @@
 	å¯â âπÇÃâπó 
 	0.0 Å` 1.0
 */
-var<double> SEVolume = DEFAULT_VOLUME;
+var<double> SEVolume = 0.5;
 
 var<SE_t[]> @@_SEBuff = [];
 
@@ -33,7 +33,7 @@ function <void> SE(<SE_t> se)
 	@@_SEBuff.push(se);
 }
 
-function <void> @(UNQN)_EACH()
+function <void> SoundEffect_EACH()
 {
 	if (ProcFrame % 2 == 0 && 1 <= @@_SEBuff.length)
 	{

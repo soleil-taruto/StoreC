@@ -12,10 +12,6 @@
 
 @(ASTR)/
 
-/*
-	Œø‰Ê‰¹
-	SE()ŠÖ”‚É“n‚·B
-*/
 function <SE_t> LoadSE(<string> url)
 {
 	var<SE_t> ret =

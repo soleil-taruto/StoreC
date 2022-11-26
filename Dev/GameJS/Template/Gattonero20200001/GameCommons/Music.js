@@ -4,16 +4,19 @@
 
 /*
 	音楽の音量
-	0.0 ～ 1.0
+	値域：0.0 ～ 1.0
 */
-var<double> MusicVolume = DEFAULT_VOLUME;
+var<double> MusicVolume = 0.5;
 
 var<int> @@_State = 0; // 0 == 停止中, 1 == 再生中, 2 == フェードアウト中, 3 == 曲停止, 4 == 次の曲を再生
 var<Sound_t> @@_Music = null;
 var<Sound_t> @@_NextMusic = null;
 
-// 再生
-// music: 曲
+/*
+	音楽の再生
+
+	music: 曲
+*/
 function <void> Play(<Sound_t> music)
 {
 	if (!music)
@@ -47,7 +50,7 @@ function <void> Play(<Sound_t> music)
 var<int> @@_FadeoutFrame;
 var<double> @@_Volume;
 
-function <void> @(UNQN)_EACH()
+function <void> Music_EACH()
 {
 	if (@@_State == 0) // ? 停止中
 	{
@@ -94,14 +97,19 @@ function <void> @(UNQN)_EACH()
 	}
 }
 
-// フェードアウト
+/*
+	フェードアウト
+*/
 function <void> Fadeout()
 {
 	Fadeout_F(30);
 }
 
-// フェードアウト
-// frame: 1～
+/*
+	フェードアウト
+
+	frame: フェードアウトを実行する長さ(フレーム数)
+*/
 function <void> Fadeout_F(<int> frame)
 {
 	if (frame < 1 || !Number.isInteger(frame))
