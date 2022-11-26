@@ -11,4 +11,4 @@ function <Sound_t> @@_Load(<string> url)
 
 // 慣習的プリフィクス == M_
 
-var<Sound_t> M_Muon = @@_Load(RESOURCE_General__muon_mp3);
+var<Sound_t> M_MidnightStreet = @@_Load(RESOURCE_DovaSyndrome__Midnight_Street_mp3);
