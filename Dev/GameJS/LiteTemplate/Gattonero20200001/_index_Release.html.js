@@ -31,7 +31,7 @@ window.onload = function()
 
 <br/>
 
-<strong>JSゲームのテンプレート</strong><br/>
+<strong>JSゲームの軽量テンプレート</strong><br/>
 
 <br/>
 
