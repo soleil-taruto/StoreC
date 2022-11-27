@@ -73,18 +73,18 @@
 ^@(BGM_風嵐神)                     dat\ajapa\風嵐神.mp3
 ^@(BGM_太陽信仰狂信者)             dat\ajapa\太陽信仰狂信者.mp3
 ^@(BGM_幻想郷物語)                 dat\ajapa\幻想郷物語.mp3
-^@(BGM_Flan In The Space)          dat\ajapa\Flan In The Space.mp3
+^@(BGM_Flan_In_The_Space)          dat\ajapa\Flan In The Space.mp3
 ^@(BGM_あいまいな東方裁判)         dat\ajapa\あいまいな東方裁判.mp3
 ^@(BGM_少女奇想天外曲)             dat\ajapa\少女奇想天外曲.mp3
 ^@(BGM_信仰の為の大戦争)           dat\ajapa\信仰の為の大戦争.mp3
-^@(BGM_Unfortunate Parade)         dat\ajapa\Unfortunate Parade.mp3
+^@(BGM_Unfortunate_Parade)         dat\ajapa\Unfortunate Parade.mp3
 ^@(BGM_少年、時の旅)               dat\ajapa\少年、時の旅.mp3
 ^@(BGM_さとりんステップ)           dat\ajapa\さとりんステップ.mp3
 ^@(BGM_闇ノミゾ知ル世界)           dat\ajapa\闇ノミゾ知ル世界.mp3
-^@(BGM_End of The End)             dat\ajapa\End of The End.mp3
+^@(BGM_End_of_The_End)             dat\ajapa\End of The End.mp3
 ^@(BGM_天を貫く緋想の剣)           dat\ajapa\天を貫く緋想の剣.mp3
 ^@(BGM_魔宮神殿)                   dat\ajapa\魔宮神殿.mp3
-^@(BGM_向日葵7s Coffee)            dat\ajapa\向日葵7s Coffee.mp3
+^@(BGM_向日葵7s_Coffee)            dat\ajapa\向日葵7s Coffee.mp3
 ^@(BGM_破滅ジオスパーク)           dat\ajapa\破滅ジオスパーク.mp3
 ^@(BGM_信仰とバベルの塔)           dat\ajapa\信仰とバベルの塔.mp3
 ^@(BGM_神戦場)                     dat\ajapa\神戦場.mp3
@@ -104,7 +104,7 @@
 ^@(BGM_ヴェネツィアワルツ)         dat\ajapa\ヴェネツィアワルツ.mp3
 ^@(BGM_皆既月食と日本酒)           dat\ajapa\皆既月食と日本酒.mp3
 ^@(BGM_大魔王、魔理沙様)           dat\ajapa\大魔王、魔理沙様.mp3
-^@(BGM_Dancing Furies)             dat\ajapa\Dancing Furies.mp3
+^@(BGM_Dancing_Furies)             dat\ajapa\Dancing Furies.mp3
 ^@(BGM_春の桜嵐)                   dat\ajapa\春の桜嵐.mp3
 ^@(BGM_天空の休息所)               dat\ajapa\天空の休息所.mp3
 ^@(BGM_天神の舞踏会)               dat\ajapa\天神の舞踏会.mp3
@@ -116,7 +116,7 @@
 ^@(BGM_白い雪都)                   dat\ajapa\白い雪都.mp3
 ^@(BGM_河童、未知の旅)             dat\ajapa\河童、未知の旅.mp3
 ^@(BGM_四季、終の時)               dat\ajapa\四季、終の時.mp3
-^@(BGM_おてんば恋娘 オルゴールver) dat\ajapa\おてんば恋娘 オルゴールver.mp3
+^@(BGM_おてんば恋娘_オルゴールver) dat\ajapa\おてんば恋娘 オルゴールver.mp3
 ^@(BGM_幻想郷の初秋)               dat\ajapa\幻想郷の初秋.mp3
 ^@(BGM_フランのお菓子)             dat\ajapa\フランのお菓子.mp3
 ^@(BGM_流れる椛の如く)             dat\ajapa\流れる椛の如く.mp3
@@ -124,7 +124,7 @@
 ^@(BGM_吐零の都)                   dat\ajapa\吐零の都.mp3
 ^@(BGM_さとり行進曲)               dat\ajapa\さとり行進曲.mp3
 ^@(BGM_月食、満ちるまで)           dat\ajapa\月食、満ちるまで.mp3
-^@(BGM_Desire Drive)               dat\ajapa\Desire Drive.mp3
+^@(BGM_Desire_Drive)               dat\ajapa\Desire Drive.mp3
 ^@(BGM_吸血鬼の夏)                 dat\ajapa\吸血鬼の夏.mp3
 ^@(BGM_フラン、荒野に出る)         dat\ajapa\フラン、荒野に出る.mp3
 ^@(BGM_紅茶を飲みましょう)         dat\ajapa\紅茶を飲みましょう.mp3
@@ -134,8 +134,8 @@
 ^@(BGM_こいしの大冒険)             dat\ajapa\こいしの大冒険.mp3
 ^@(BGM_満月、夜風にあたり)         dat\ajapa\満月、夜風にあたり.mp3
 ^@(BGM_満月、夜風にあたりピアノ)   dat\ajapa\満月、夜風にあたりピアノ.mp3
-^@(BGM_The Dispute World)          dat\ajapa\The Dispute World.mp3
-^@(BGM_恋色魔Star Space)           dat\ajapa\恋色魔Star Space.mp3
+^@(BGM_The_Dispute_World)          dat\ajapa\The Dispute World.mp3
+^@(BGM_恋色魔Star_Space)           dat\ajapa\恋色魔Star Space.mp3
 ^@(BGM_風嵐神_改)                  dat\ajapa\風嵐神_改.mp3
 ^@(BGM_夜の野原)                   dat\ajapa\夜の野原.mp3
 ^@(BGM_無数の積み石)               dat\ajapa\無数の積み石.mp3
@@ -145,7 +145,7 @@
 ^@(BGM_中東巡り巡って)             dat\ajapa\中東巡り巡って.mp3
 ^@(BGM_終秋のクリスマス)           dat\ajapa\終秋のクリスマス.mp3
 ^@(BGM_銀月の前に)                 dat\ajapa\銀月の前に.mp3
-^@(BGM_The Labyrinth)              dat\ajapa\The Labyrinth.mp3
+^@(BGM_The_Labyrinth)              dat\ajapa\The Labyrinth.mp3
 ^@(BGM_雪と花)                     dat\ajapa\雪と花.mp3
 ^@(BGM_初夏、花開く)               dat\ajapa\初夏、花開く.mp3
 ^@(BGM_宇宙トラベル)               dat\ajapa\宇宙トラベル.mp3
