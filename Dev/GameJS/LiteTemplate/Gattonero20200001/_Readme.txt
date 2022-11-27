@@ -15,6 +15,7 @@ JSゲームの軽量テンプレート
 
 	★以降、展開先パスを <LiteTemplate> と表記します。
 
+
 2. JSJoin をインストールする。
 
 	以下のリンクから JSJoin.zip をダウンロードする。
@@ -33,6 +34,7 @@ JSゲームの軽量テンプレート
 	<LiteTemplate>\Debug.bat を実行する。
 
 	ビルドに成功すると <LiteTemplate>\out\index.html が作成されます。
+
 
 リリース用にビルドする場合：
 
@@ -116,29 +118,138 @@ GameMain はジェネレータ関数で yield 1; するたびに画面のリフレッシュ(次のフレーム
 GameMain は関数を終了 (return) してはなりません。
 
 それ以外のファイル (<LiteTemplate>\Games 以外) は基本的に触りません。
-必要に応じて修正します。
+必要に応じて修正して下さい。
 
 
 ----
 ソースファイルのプレーンJSとの相違点 (JSJoin 固有の記法)
 
-TODO
+1. キーワード @@
+
+	ファイル毎にユニークな文字列(識別子の一部)に置き換えられます。
+	これにより...
+
+	function FUNCNAME() { ... }
+	var VARNAME;
+
+	...と定義された関数・変数はアプリ内全域からアクセス可能(グローバルスコープ)となり...
+
+	function @@_FUNCNAME() { ... }
+	var @@_VARNAME;
+
+	...と定義された関数・変数はファイル内のみからアクセス可能(ファイルスコープ)となります。
+
+
+2. var ⇒ let
+
+	キーワード var は let に置き換えます。
+	例えば var ABC; は JSJoin によって let ABC; に置き換えられます。
+
+
+3. 型名
+
+	"<" + (空白 or ("=" 以外)) と ">" により囲まれた範囲は JSJoin によって除去されます。
+	当該範囲には型名を記述します。
+	例えば...
+
+	var<double> DoubleFloatValue = 1.0;
+
+	...という宣言は JSJoin によって...
+
+	let DoubleFloatValue = 1.0;
+
+	...に置き換わります。
+	また...
+
+	function <int> StringToIntFunc(<string> str) { ... }
+
+	...という関数は...
+
+	function StringToIntFunc(str) { ... }
+
+	...というコードに置き換わります。
 
 
 ----
 画像リソースの追加方法
 
-TODO
+1. 画像ファイルをリソースフォルダに追加
+
+　<LiteTemplate>\res の配下に画像ファイルを配置する。
+　ここでは <LiteTemplate>\res\PicData\NewPic.png を追加したとします。
+
+　★res直下のフォルダ名は「英小文字で始まってはならない」ことに注意しで下さい。
+
+
+2. リソースを変数として定義
+
+　<LiteTemplate>\Gattonero20200001\GameCommons_Resource\Picture.js に以下の行を追加する。
+
+　var<Picture_t> P_NewPic = @@_Load(RESOURCE_PicData__NewPic_png);
+　                 ~~~~~~                    ~~~~~~~~~~~~~~~~~~~
+　                 任意の名前                追加した画像ファイルのパス
+
+　追加した画像ファイルのパスはres直下からの相対パスの \ を __ に . を _ に置き換えた文字列です。
+　今回の場合、相対パスは PicData\NewPic.png なので、置き換えすると PicData__NewPic_png となります。
+
+
+3. 描画するには
+
+　Draw(P_NewPic, 500, 500, 1.0, 0.0, 1.0); などとします。
 
 
 ----
 音楽リソースの追加方法
 
-TODO
+1. 音楽ファイルをリソースフォルダに追加
+
+　<LiteTemplate>\res の配下に音楽ファイルを配置する。
+　ここでは <LiteTemplate>\res\MusicData\NewMusic.mp3 を追加したとします。
+
+　★res直下のフォルダ名は「英小文字で始まってはならない」ことに注意しで下さい。
+
+
+2. リソースを変数として定義
+
+　<LiteTemplate>\Gattonero20200001\GameCommons_Resource\Music.js に以下の行を追加する。
+
+　var<Sound_t> M_NewMusic = @@_Load(RESOURCE_MusicData__NewMusic_mp3);
+　               ~~~~~~~~                    ~~~~~~~~~~~~~~~~~~~~~~~
+　               任意の名前                  追加した音楽ファイルのパス
+
+　追加した音楽ファイルのパスはres直下からの相対パスの \ を __ に . を _ に置き換えた文字列です。
+　今回の場合、相対パスは MusicData\NewMusic.mp3 なので、置き換えすると MusicData__NewMusic_mp3 となります。
+
+
+3. 音楽を再生するには
+
+　Play(M_NewMusic); などとします。
 
 
 ----
 効果音リソースの追加方法
 
-TODO
+1. 効果音(音声)ファイルをリソースフォルダに追加
+
+　<LiteTemplate>\res の配下に効果音ファイルを配置する。
+　ここでは <LiteTemplate>\res\SEData\NewSE.mp3 を追加したとします。
+
+　★res直下のフォルダ名は「英小文字で始まってはならない」ことに注意しで下さい。
+
+
+2. リソースを変数として定義
+
+　<LiteTemplate>\Gattonero20200001\GameCommons_Resource\SoundEffect.js に以下の行を追加する。
+
+　var<Sound_t> S_NewSE = @@_Load(RESOURCE_SEData__NewSE_mp3);
+　               ~~~~~                    ~~~~~~~~~~~~~~~~~
+　               任意の名前               追加した効果音ファイルのパス
+
+　追加した効果音ファイルのパスはres直下からの相対パスの \ を __ に . を _ に置き換えた文字列です。
+　今回の場合、相対パスは SEData\NewSE.mp3 なので、置き換えすると SEData__NewSE_mp3 となります。
+
+
+3. 効果音を再生するには
+
+　SE(S_NewSE); などとします。
 
