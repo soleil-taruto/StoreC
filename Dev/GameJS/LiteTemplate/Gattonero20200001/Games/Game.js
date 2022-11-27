@@ -34,6 +34,7 @@ function* <generatorForTask> GameMain()
 			yield 1;
 		}
 
+		// カード位置矯正
 		cardX = Screen_W / 2;
 
 		for (; ; )
@@ -98,9 +99,10 @@ function* <generatorForTask> GameMain()
 			yield 1;
 		}
 
+		// カード速度
 		var<double> cardXAdd = -0.5;
 
-		// カードが退場するまでループ // 0.5 は許容誤差
+		// カードが退場するまでループ
 		while (-300.0 < cardX)
 		{
 			// カード加速
