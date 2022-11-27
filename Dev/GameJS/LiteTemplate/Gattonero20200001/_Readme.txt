@@ -51,8 +51,8 @@ JSゲームの軽量テンプレート
 --------------------------------------------------------------------
 難読化                             しない                 する
 リソースを出力先に含める           含めない               含める
-広域定数 DEBUG の値                1                      0
-広域定数 RELEASE の値              0                      1
+広域変数 DEBUG の値                1                      0
+広域変数 RELEASE の値              0                      1
 使用する index.html テンプレート   _index_Debug.html.js   _index_Release.html.js
 
 
@@ -252,4 +252,51 @@ GameMain は関数を終了 (return) してはなりません。
 3. 効果音を再生するには
 
 　SE(S_NewSE); などとします。
+
+
+----
+広域関数・広域変数一覧
+
+	<LiteTemplate>\Gattonero20200001\00_Consts.js
+
+		Screen_W         内部スクリーンの幅
+		Screen_H         内部スクリーンの高さ
+		Canvas_W         外部スクリーンの幅
+		Canvas_H         外部スクリーンの高さ
+
+
+	<LiteTemplate>\Gattonero20200001\GameCommons\Draw.js
+
+		GetPicture_W     画像の幅を得る。
+		GetPicture_H     画像の高さを得る。
+		Draw             画像を描画する。
+		Draw2            画像を描画する。
+
+
+	<LiteTemplate>\Gattonero20200001\GameCommons\Engine.js
+
+		Canvas           描画先Canvasタグ
+		CanvasBox        Canvbasタグを入れるDivタグ
+		ProcFrame        ゲーム開始から何フレーム目かを表す整数
+		Context          描画先コンテキスト
+
+
+	<LiteTemplate>\Gattonero20200001\GameCommons\Mouse.js
+
+		GetMouseDown     マウス押下状態取得
+		ClearMouseDown   マウス押下状態クリア
+		GetMouseX        マウスの位置(X-軸)を得る。
+		GetMouseY        マウスの位置(Y-軸)を得る。
+
+
+	<LiteTemplate>\Gattonero20200001\GameCommons\Music.js
+
+		Play             音楽を再生する。
+		Fadeout          再生中の音楽をフェードアウトする。
+		Fadeout_F        再生中の音楽をフェードアウトする。
+
+
+	<LiteTemplate>\Gattonero20200001\GameCommons\SoundEffect.js
+
+		SE               効果音を再生する。
 
