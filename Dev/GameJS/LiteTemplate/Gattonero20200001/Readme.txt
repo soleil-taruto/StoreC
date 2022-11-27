@@ -85,10 +85,10 @@ JSゲームの軽量テンプレート
 │  Entrance.js                       ゲームの入り口画面
 │  Loading.js                        ロード中画面
 │  Program.js                        エントリーポイント
+│  Readme.txt                        このファイル
 │  tags                              秀丸用タグファイル
 │  _index_Debug.html.js              デバッグ用 index.html のテンプレート
 │  _index_Release.html.js            リリース用 index.html のテンプレート
-│  _Readme.txt                       このファイル
 │
 ├─GameCommons                       ゲーム用共通機能
 │      Draw.js                       描画
