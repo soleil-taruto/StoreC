@@ -123,5 +123,104 @@ namespace Charlotte.Tests
 				}
 			}
 		}
+
+		// ====
+
+		public void Test02()
+		{
+			Test02_a(1, 3, 3, 7);
+		}
+
+		private class Operand
+		{
+			public int Numer;
+			public int Denom;
+			public string Str;
+
+			public bool IsInt()
+			{
+				return this.Numer % this.Denom == 0;
+			}
+
+			public int GetIntValue()
+			{
+				return this.Numer / this.Denom;
+			}
+		}
+
+		private void Test02_a(params int[] ns)
+		{
+			Test02_b(ns.Select(v => new Operand() { Numer = v, Denom = 1, Str = "" + v }).ToArray());
+		}
+
+		private void Test02_b(Operand[] os)
+		{
+			if (os.Length == 1)
+			{
+				Operand o = os[0];
+
+				if (
+					o.IsInt() &&
+					o.GetIntValue() == 10
+					)
+					Console.WriteLine(o.Str);
+
+				return;
+			}
+
+			for (int a = 0; a < os.Length; a++)
+			{
+				for (int b = 0; b < os.Length; b++)
+				{
+					if (a == b)
+						continue;
+
+					Operand[] next = os.ToArray();
+					next[a] = null;
+					next[b] = null;
+					next = next.Where(v => v != null).Concat(new Operand[] { null }).ToArray();
+					int x = next.Length - 1;
+
+					next[x] = new Operand()
+					{
+						Numer = os[a].Numer * os[b].Denom + os[b].Numer * os[a].Denom,
+						Denom = os[a].Denom * os[b].Denom,
+						Str = "(" + os[a].Str + " + " + os[b].Str + ")",
+					};
+
+					Test02_b(next);
+
+					next[x] = new Operand()
+					{
+						Numer = os[a].Numer * os[b].Denom - os[b].Numer * os[a].Denom,
+						Denom = os[a].Denom * os[b].Denom,
+						Str = "(" + os[a].Str + " - " + os[b].Str + ")",
+					};
+
+					Test02_b(next);
+
+					next[x] = new Operand()
+					{
+						Numer = os[a].Numer * os[b].Numer,
+						Denom = os[a].Denom * os[b].Denom,
+						Str = "(" + os[a].Str + " * " + os[b].Str + ")",
+					};
+
+					Test02_b(next);
+
+					if (os[b].Numer != 0)
+					{
+						next[x] = new Operand()
+						{
+							Numer = os[a].Numer * os[b].Denom,
+							Denom = os[a].Denom * os[b].Numer,
+							Str = "(" + os[a].Str + " / " + os[b].Str + ")",
+						};
+
+						Test02_b(next);
+					}
+				}
+			}
+		}
 	}
 }
