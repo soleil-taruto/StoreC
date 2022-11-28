@@ -128,7 +128,21 @@ namespace Charlotte.Tests
 
 		public void Test02()
 		{
-			Test02_a(1, 3, 3, 7);
+			//Test02_a(1, 3, 3, 7);
+			//Test02_a(3, 4, 7, 8);
+			//Test02_a(5, 6, 6, 9);
+			//Test02_a(4, 6, 7, 9);
+			//Test02_a(1, 3, 8, 8);
+			//Test02_a(3, 4, 8, 8);
+			//Test02_a(1, 1, 5, 8);
+			//Test02_a(4, 8, 8, 8);
+			//Test02_a(2, 2, 8, 9);
+			//Test02_a(3, 4, 6, 6);
+			//Test02_a(1, 1, 9, 9);
+			//Test02_a(4, 6, 6, 9);
+			//Test02_a(6, 6, 7, 8);
+			//Test02_a(6, 6, 9, 9);
+			Test02_a(3, 4, 7, 7);
 		}
 
 		private class Operand
