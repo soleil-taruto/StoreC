@@ -2,6 +2,18 @@
 	”z—ñ
 */
 
+function <int> IndexOf(<T[]> arr, <Func T boolean> match)
+{
+	for (var<int> i = 0; i < arr.length; i++)
+	{
+		if (match(arr[i]))
+		{
+			return i;
+		}
+	}
+	return -1; // not found
+}
+
 function <void> InsertElement(<T[]> arr, <int> index, <T> element)
 {
 	if (index < 0 || arr.length < index)
