@@ -236,3 +236,13 @@ function <void> NextRun(generator)
 		error();
 	}
 }
+
+function <T[]> Select(<T[]> arr, <Func T T> filter)
+{
+	return arr.map(v => filter(v));
+}
+
+function <T[]> Where(<T[]> arr, <Func T boolean> match)
+{
+	return arr.filter(v => match(v));
+}

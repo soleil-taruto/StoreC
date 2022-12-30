@@ -112,8 +112,8 @@ function* <generatorForTask> @@_BetMain()
 			{
 				var<int> inc = Math.min(INC_SPAN, @@_Credit);
 
-				@@_Credit -= INC_SPAN;
-				@@_Bet += INC_SPAN;
+				@@_Credit -= inc;
+				@@_Bet += inc;
 			}
 			if (HoveredPicture == P_ButtonBetDown)
 			{
@@ -131,6 +131,11 @@ function* <generatorForTask> @@_BetMain()
 			}
 		}
 
+		var<int> remSec = ToFix(GetAddGameCreditRemFrame() / 60.0) + 1;
+
+		var<string> mm = ZPad(ToFix(remSec / 60), 2, "0");
+		var<string> ss = ZPad(      remSec % 60,  2, "0");
+
 		// 描画ここから
 
 		@@_DrawBackground();
@@ -139,11 +144,24 @@ function* <generatorForTask> @@_BetMain()
 		SetFSize(120);
 		SetPrint(100, 500, 300);
 		PrintLine("CREDIT: " + @@_Credit);
-		PrintLine("BET: " + @@_Bet);
+		PrintLine("BET: "    + @@_Bet);
 
-		Draw(P_ButtonBetUp, 200, 1500, 1.0, 0.0, 1.0);
-		Draw(P_ButtonBetDown, 600, 1500, 1.0, 0.0, 1.0);
-		Draw(P_ButtonStart, 1000, 1500, 1.0, 0.0, 1.0);
+		SetFSize(60);
+		SetPrint(200, 1150, 0);
+		PrintLine("CREDIT 付与まで　" + mm + " : " + ss);
+
+		Draw(P_ButtonBetUp,    200, 1500, @@_Credit == 0 ? 0.2 : 1.0, 0.0, 1.0);
+		Draw(P_ButtonBetDown,  600, 1500, @@_Bet    == 0 ? 0.2 : 1.0, 0.0, 1.0);
+		Draw(P_ButtonStart,   1000, 1500, @@_Bet    == 0 ? 0.2 : 1.0, 0.0, 1.0);
+
+		SetColor("#ff8000");
+		SetFSize(100);
+		SetPrint(
+			@@_Bet == 0 ? 150 : 950,
+			1650 + ToFix(Math.abs(Math.sin(ProcFrame / 20.0)) * 30.0),
+			0
+			);
+		PrintLine("▲");
 
 		ExecuteAllActor();
 		ExecuteAllTask(GameTasks);
@@ -293,7 +311,7 @@ battleLoop:
 			{
 				if (doTsumoFlag)
 				{
-					yield* @@_CheckRenYama();
+					yield* @@_CheckRemYama();
 					yield* @@_WaitToTouch("Tap to TSUMO");
 
 					var<Trump_t> card = RCards.pop();
@@ -360,6 +378,8 @@ battleLoop:
 			for (; ; )
 			{
 				if (GetMouseDown() == -1)
+				if (!IsOutOfScreen(CreateD2Point(GetMouseX(), GetMouseY()), 0.0))
+				if (Screen_H - GetPicture_H(P_TrumpFrame) < GetMouseY())
 				{
 					var<double> x = GetMouseX();
 					var<int> i;
@@ -466,7 +486,7 @@ battleLoop:
 			{
 				if (doTsumoFlag)
 				{
-					yield* @@_CheckRenYama();
+					yield* @@_CheckRemYama();
 
 					var<Trump_t> card = RCards.pop();
 
@@ -965,7 +985,10 @@ function* <generatorForTask> @@_E_ShowResult(<Picture_t> picture)
 	FreezeInput();
 }
 
-function* <generatorForTask> @@_CheckRenYama()
+/*
+	読み取り先の山をチェックし、残りゼロなら捨てたカードから補充する。
+*/
+function* <generatorForTask> @@_CheckRemYama()
 {
 	if (RCards.length == 0)
 	{

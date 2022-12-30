@@ -20,6 +20,8 @@ C:\Dev\GameJS\Puzzle2048\Gattonero20200001\Commons\Array.js(199) : ToArray // ä÷
 C:\Dev\GameJS\Puzzle2048\Gattonero20200001\Commons\Array.js(213) : ToGenerator // ä÷êî
 C:\Dev\GameJS\Puzzle2048\Gattonero20200001\Commons\Array.js(224) : NextVal // ä÷êî
 C:\Dev\GameJS\Puzzle2048\Gattonero20200001\Commons\Array.js(232) : NextRun // ä÷êî
+C:\Dev\GameJS\Puzzle2048\Gattonero20200001\Commons\Array.js(240) : Select // ä÷êî
+C:\Dev\GameJS\Puzzle2048\Gattonero20200001\Commons\Array.js(245) : Where // ä÷êî
 C:\Dev\GameJS\Puzzle2048\Gattonero20200001\Commons\D2Point.js(7) : D2Point_t // íËã`
 C:\Dev\GameJS\Puzzle2048\Gattonero20200001\Commons\D2Point.js(15) : CreateD2Point // ä÷êî
 C:\Dev\GameJS\Puzzle2048\Gattonero20200001\Commons\D2Point.js(26) : D2PointToI2Point // ä÷êî

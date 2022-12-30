@@ -93,6 +93,7 @@ function <boolean> IsTrumpReversed(<Trump_t> actor)
 
 function <void> SetTrumpReversed_Direct(<Trump_t> actor, <boolean> reversed)
 {
+	actor.SpecialDraw = ToGenerator([]);
 	actor.Reversed = reversed;
 }
 

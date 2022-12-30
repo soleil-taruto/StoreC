@@ -81,8 +81,8 @@ function* <generatorForTask> @@_BetMain()
 			{
 				var<int> inc = Math.min(INC_SPAN, @@_Credit);
 
-				@@_Credit -= INC_SPAN;
-				@@_Bet += INC_SPAN;
+				@@_Credit -= inc;
+				@@_Bet += inc;
 
 				betUpZure = 10.0;
 			}

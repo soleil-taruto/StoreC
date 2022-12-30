@@ -33,6 +33,8 @@ C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\Array.js(199) : ToArray // ŠÖ”
 C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\Array.js(213) : ToGenerator // ŠÖ”
 C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\Array.js(224) : NextVal // ŠÖ”
 C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\Array.js(232) : NextRun // ŠÖ”
+C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\Array.js(240) : Select // ŠÖ”
+C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\Array.js(245) : Where // ŠÖ”
 C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\Common.js(5) : Supplier // ŠÖ”
 C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\Common.js(15) : Repeat // ŠÖ”
 C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\Common.js(23) : Wait // ŠÖ”
@@ -114,7 +116,9 @@ C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\String.js(16) : ToHex // ŠÖ”
 C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\String.js(44) : RevStr // ŠÖ”
 C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\String.js(56) : Tokenize // ŠÖ”
 C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\String.js(91) : StrToInt // ŠÖ”
-C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\String.js(117) : ToCharArray // ŠÖ”
+C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\String.js(117) : ParseInteger // ŠÖ”
+C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\String.js(122) : ToCharArray // ŠÖ”
+C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\String.js(127) : JoinString // ŠÖ”
 C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\Types.js(8) : boolean // ’è‹`
 C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\Types.js(9) : int // ’è‹`
 C:\Dev\GameJS\Marisa\Gattonero20200001\Commons\Types.js(10) : double // ’è‹`

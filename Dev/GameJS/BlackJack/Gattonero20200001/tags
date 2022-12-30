@@ -31,6 +31,8 @@ C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\Array.js(199) : ToArray // ä÷ê
 C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\Array.js(213) : ToGenerator // ä÷êî
 C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\Array.js(224) : NextVal // ä÷êî
 C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\Array.js(232) : NextRun // ä÷êî
+C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\Array.js(240) : Select // ä÷êî
+C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\Array.js(245) : Where // ä÷êî
 C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\Common.js(5) : Supplier // ä÷êî
 C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\Common.js(15) : Repeat // ä÷êî
 C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\Common.js(23) : Wait // ä÷êî
@@ -112,7 +114,9 @@ C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\String.js(16) : ToHex // ä÷êî
 C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\String.js(44) : RevStr // ä÷êî
 C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\String.js(56) : Tokenize // ä÷êî
 C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\String.js(91) : StrToInt // ä÷êî
-C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\String.js(117) : ToCharArray // ä÷êî
+C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\String.js(117) : ParseInteger // ä÷êî
+C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\String.js(122) : ToCharArray // ä÷êî
+C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\String.js(127) : JoinString // ä÷êî
 C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\Types.js(8) : boolean // íËã`
 C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\Types.js(9) : int // íËã`
 C:\Dev\GameJS\BlackJack\Gattonero20200001\Commons\Types.js(10) : double // íËã`
