@@ -10,14 +10,18 @@
 */
 function <int[]> GetChowIndexes(<Deck_t> deck, <Trump_t> lastWastedCard)
 {
-	// HACK: 複数マッチする場合を考慮していない。
+	// HACK: 複数マッチする場合、評価ポイントで判断 -> 選べるようにすべきか。
+
+	var<int[][]> ret = [];
+
+	// ----
 
 	var<int> i = IndexOf(deck.Cards, card => card.Suit == lastWastedCard.Suit && card.Number == lastWastedCard.Number + 1);
 	var<int> j = IndexOf(deck.Cards, card => card.Suit == lastWastedCard.Suit && card.Number == lastWastedCard.Number + 2);
 
 	if (i != -1 && j != -1)
 	{
-		return [ i, j ];
+		ret.push([ i, j ]);
 	}
 
 	i = IndexOf(deck.Cards, card => card.Suit == lastWastedCard.Suit && card.Number == lastWastedCard.Number - 1);
@@ -25,7 +29,7 @@ function <int[]> GetChowIndexes(<Deck_t> deck, <Trump_t> lastWastedCard)
 
 	if (i != -1 && j != -1)
 	{
-		return [ i, j ];
+		ret.push([ i, j ]);
 	}
 
 	i = IndexOf(deck.Cards, card => card.Suit == lastWastedCard.Suit && card.Number == lastWastedCard.Number - 2);
@@ -33,9 +37,35 @@ function <int[]> GetChowIndexes(<Deck_t> deck, <Trump_t> lastWastedCard)
 
 	if (i != -1 && j != -1)
 	{
-		return [ i, j ];
+		ret.push([ i, j ]);
 	}
 
+	// ----
+
+	if (1 <= ret.length)
+	{
+		var<int[]> b = null;
+		var<double> bp = -IMAX;
+
+		for (var<int> i = 0; i < ret.length; i++)
+		{
+			var<int[]> nb = ret[i];
+			var<double> nbp = GetHyoukaPointCR(deck, nb);
+
+			if (bp < nbp)
+			{
+				b = nb;
+				bp = nbp;
+			}
+		}
+
+		if (b == null) // 2bs
+		{
+			error();
+		}
+
+		return b;
+	}
 	return null;
 }
 
@@ -48,7 +78,7 @@ function <int[]> GetChowIndexes(<Deck_t> deck, <Trump_t> lastWastedCard)
 */
 function <int[]> GetPongIndexes(<Deck_t> deck, <Trump_t> lastWastedCard)
 {
-	// HACK: 複数マッチする場合を考慮していない。
+	// HACK: 複数マッチする場合、評価ポイントで判断 -> 選べるようにすべきか。
 
 	var<int[]> ret = [];
 
@@ -59,14 +89,67 @@ function <int[]> GetPongIndexes(<Deck_t> deck, <Trump_t> lastWastedCard)
 		if (card.Number == lastWastedCard.Number)
 		{
 			ret.push(i);
-
-			if (ret.length == 2)
-			{
-				return ret;
-			}
 		}
 	}
+	if (ret.length == 3)
+	{
+		var<double> p1 = @@_GPI_GetChowHyoukaPoint(deck, ret[0]);
+		var<double> p2 = @@_GPI_GetChowHyoukaPoint(deck, ret[1]);
+		var<double> p3 = @@_GPI_GetChowHyoukaPoint(deck, ret[2]);
+
+		if (Math.max(p1, p2) < p3)
+		{
+			DesertElement(ret, 2);
+		}
+		else if (p1 < p2)
+		{
+			DesertElement(ret, 1);
+		}
+		else
+		{
+			DesertElement(ret, 0);
+		}
+
+		if (ret.length != 2) // 2bs
+		{
+			error();
+		}
+
+		return ret;
+	}
+	if (ret.length == 2)
+	{
+		return ret;
+	}
 	return null;
+}
+
+function <double> @@_GPI_GetChowHyoukaPoint(<Deck_t> deck, <int> cardIdx)
+{
+	var<double> ret = 0.0;
+
+	for (var<int> i = 0; i < deck.Cards.length; i++)
+	{
+		if (i == cardIdx)
+		{
+			// noop
+		}
+		else if (
+			deck.Cards[i].Suit == deck.Cards[cardIdx].Suit &&
+			Math.abs(deck.Cards[i].Number - deck.Cards[cardIdx].Number) == 1
+			)
+		{
+			ret += 1.0;
+		}
+		else if (
+			deck.Cards[i].Suit == deck.Cards[cardIdx].Suit &&
+			Math.abs(deck.Cards[i].Number - deck.Cards[cardIdx].Number) == 2
+			)
+		{
+			ret += 0.01;
+		}
+	}
+	return ret;
 }
 
 /*
@@ -109,7 +192,15 @@ function <int[]> GetKongIndexes(<Deck_t> deck)
 
 				if (ret.length == 4)
 				{
-					return ret;
+
+	// HACK: 配牌の時点で4枚揃っていた場合、カンできない問題あり。
+	// -> その後鳴くとカン選択が出てくる問題もある。
+	// -- 鳴きは手番のとき常にできるようにしておくべきか。
+
+					if (deck.Cards[deck.Cards.length - 1].Number == n) // ? ツモったカードを含むか -- ツモったカードは右端に配置されている想定
+					{
+						return ret;
+					}
 				}
 			}
 		}

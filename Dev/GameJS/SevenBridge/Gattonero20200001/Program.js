@@ -37,6 +37,8 @@ function* <generatorForTask> @@_Main()
 //		yield* Test01();
 //		yield* Test02();
 //		yield* Test03();
+//		yield* Test04();
+//		yield* Test05();
 		yield* @@_Main2();
 
 		// --
